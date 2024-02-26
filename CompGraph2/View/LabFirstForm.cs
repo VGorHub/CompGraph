@@ -20,7 +20,10 @@ namespace CompGraph
         {
             MatrixOperations tab1 = new MatrixOperations();            
             tab1.Dock = DockStyle.Fill;            
-            TabControl.TabPages[0].Controls.Add(tab1);            
+            TabControl.TabPages[0].Controls.Add(tab1);
+            VectorModule tab2 = new VectorModule();
+            tab2.Dock = DockStyle.Fill;
+            TabControl.TabPages[1].Controls.Add(tab2);
         }
 
         public LabFirstForm()

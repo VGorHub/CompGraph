@@ -91,6 +91,12 @@
     <Compile Include="View\MatrixOperations.Designer.cs">
       <DependentUpon>MatrixOperations.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\VectorModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\VectorModule.Designer.cs">
+      <DependentUpon>VectorModule.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\ChooseLaboratory.resx">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +118,9 @@
     </Compile>
     <EmbeddedResource Include="View\MatrixOperations.resx">
       <DependentUpon>MatrixOperations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VectorModule.resx">
+      <DependentUpon>VectorModule.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

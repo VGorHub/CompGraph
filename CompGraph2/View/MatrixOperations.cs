@@ -10,8 +10,6 @@ using System.Windows.Forms;
 using System.IO;
 
 
-
-
 namespace CompGraph.View
 {
     public partial class MatrixOperations : UserControl
