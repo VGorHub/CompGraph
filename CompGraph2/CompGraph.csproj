@@ -71,11 +71,11 @@
     <Compile Include="View\ChooseLaboratory.Designer.cs">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\WorkWithMatrix.cs">
+    <Compile Include="View\LabFirstForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\WorkWithMatrix.Designer.cs">
-      <DependentUpon>WorkWithMatrix.cs</DependentUpon>
+    <Compile Include="View\LabFirstForm.Designer.cs">
+      <DependentUpon>LabFirstForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\InputMatrix.cs">
       <SubType>Form</SubType>
@@ -85,11 +85,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\MatrixOperations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MatrixOperations.Designer.cs">
+      <DependentUpon>MatrixOperations.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\ChooseLaboratory.resx">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\WorkWithMatrix.resx">
-      <DependentUpon>WorkWithMatrix.cs</DependentUpon>
+    <EmbeddedResource Include="View\LabFirstForm.resx">
+      <DependentUpon>LabFirstForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\InputMatrix.resx">
       <DependentUpon>InputMatrix.cs</DependentUpon>
@@ -104,6 +110,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\MatrixOperations.resx">
+      <DependentUpon>MatrixOperations.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

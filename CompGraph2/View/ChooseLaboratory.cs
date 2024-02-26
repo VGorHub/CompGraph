@@ -13,7 +13,7 @@ namespace CompGraph.View
 {
     public partial class ChooseLaboratory : Form
     {
-        WorkWithMatrix workWithMatrix = null;
+        LabFirstForm workWithMatrix = null;
         public ChooseLaboratory()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace CompGraph.View
 
         private void LabFirstButton_Click(object sender, EventArgs e)
         {
-            workWithMatrix = new WorkWithMatrix();
+            workWithMatrix = new LabFirstForm();
             if (workWithMatrix.ShowDialog() == DialogResult.OK)
             {
 

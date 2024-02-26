@@ -9,13 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-
-namespace CompGraph
+namespace CompGraph.View
 {
-    public partial class WorkWithMatrix : Form
+    public partial class MatrixOperations : UserControl
     {
-        
-
         const int MaxN = 10; // максимально допустимая размерность матрицы
         int n = 3; // текущая размерность матрицы
         TextBox[,] MatrText = null; // матрица элементов типа TextBox
@@ -33,38 +30,7 @@ namespace CompGraph
                 for (int j = 0; j < n; j++)
                     MatrText[i, j].Text = "0";
         }
-        private void WorkWithMatrix_Load(object sender, EventArgs e)
-        {
-            // І. Инициализация элементов управления и внутренних переменных
-            DimensionMatrixTexBox.Text = "";
-            f1 = f2 = false; // матрицы еще не заполнены
-            label2.Text = "false";
-            label3.Text = "false";
-            // ІІ. Выделение памяти и настройка MatrText
-            int i, j;
-            // 1. Выделение памяти для формы inputMatrix
-            inputMatrix = new InputMatrix();
-            // 2. Выделение памяти под самую матрицу
-            MatrText = new TextBox[MaxN, MaxN];
-            // 3. Выделение памяти для каждой ячейки матрицы и ее настройка
-            for (i = 0; i < MaxN; i++)
-                for (j = 0; j < MaxN; j++)
-                {
-                    // 3.1. Выделить память
-                    MatrText[i, j] = new TextBox();
-                    // 3.2. Обнулить эту ячейку
-                    MatrText[i, j].Text = "0";
-                    // 3.3. Установить позицию ячейки в форме inputMatrix
-                    MatrText[i, j].Location = new System.Drawing.Point(10 + i * dx, 10 + j * dy);
-                    // 3.4. Установить размер ячейки
-                    MatrText[i, j].Size = new System.Drawing.Size(dx, dy);
-                    // 3.5. Пока что спрятать ячейку
-                    MatrText[i, j].Visible = false;
-                    // 3.6. Добавить MatrText[i,j] в форму inputMatrix
-                    inputMatrix.Controls.Add(MatrText[i, j]);
-                }
-        }
-
+        
         private void DimensionMatrixTexBox_Leave(object sender, EventArgs e)
         {
             int nn;
@@ -74,7 +40,7 @@ namespace CompGraph
                 f1 = f2 = false;
                 label2.Text = "false";
                 label3.Text = "false";
-            }
+            }            
         }
 
         private void InputFirstMatrixButton_Click(object sender, EventArgs e)
@@ -229,7 +195,7 @@ namespace CompGraph
         }
 
         private void SaveInFileButton_Click(object sender, EventArgs e)
-        {            
+        {
 
             FileStream fw = null;
             string msg;
@@ -262,12 +228,37 @@ namespace CompGraph
             if (fw != null) fw.Close();
         }
 
-        public WorkWithMatrix()
-        {
+        public MatrixOperations()
+        {            
             InitializeComponent();
+            // І. Инициализация элементов управления и внутренних переменных
+            DimensionMatrixTexBox.Text = "";
+            f1 = f2 = false; // матрицы еще не заполнены
+            label2.Text = "false";
+            label3.Text = "false";
+            // ІІ. Выделение памяти и настройка MatrText
+            int i, j;
+            // 1. Выделение памяти для формы inputMatrix
+            inputMatrix = new InputMatrix();
+            // 2. Выделение памяти под самую матрицу
+            MatrText = new TextBox[MaxN, MaxN];
+            // 3. Выделение памяти для каждой ячейки матрицы и ее настройка
+            for (i = 0; i < MaxN; i++)
+                for (j = 0; j < MaxN; j++)
+                {
+                    // 3.1. Выделить память
+                    MatrText[i, j] = new TextBox();
+                    // 3.2. Обнулить эту ячейку
+                    MatrText[i, j].Text = "0";
+                    // 3.3. Установить позицию ячейки в форме inputMatrix
+                    MatrText[i, j].Location = new System.Drawing.Point(10 + i * dx, 10 + j * dy);
+                    // 3.4. Установить размер ячейки
+                    MatrText[i, j].Size = new System.Drawing.Size(dx, dy);
+                    // 3.5. Пока что спрятать ячейку
+                    MatrText[i, j].Visible = false;
+                    // 3.6. Добавить MatrText[i,j] в форму inputMatrix
+                    inputMatrix.Controls.Add(MatrText[i, j]);
+                }
         }
-
-
     }
-
 }
