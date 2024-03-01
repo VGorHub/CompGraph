@@ -120,8 +120,9 @@
             this.label_f2.AutoSize = true;
             this.label_f2.Location = new System.Drawing.Point(134, 124);
             this.label_f2.Name = "label_f2";
-            this.label_f2.Size = new System.Drawing.Size(0, 13);
+            this.label_f2.Size = new System.Drawing.Size(10, 13);
             this.label_f2.TabIndex = 2;
+            this.label_f2.Text = ".";
             // 
             // label_ErrorConst
             // 
@@ -148,7 +149,6 @@
             this.textBox_Const.Name = "textBox_Const";
             this.textBox_Const.Size = new System.Drawing.Size(54, 20);
             this.textBox_Const.TabIndex = 13;
-            this.textBox_Const.TextChanged += new System.EventHandler(this.textBox_Const_TextChanged);
             // 
             // label7
             // 
@@ -194,8 +194,9 @@
             this.label_f1.AutoSize = true;
             this.label_f1.Location = new System.Drawing.Point(140, 124);
             this.label_f1.Name = "label_f1";
-            this.label_f1.Size = new System.Drawing.Size(0, 13);
+            this.label_f1.Size = new System.Drawing.Size(10, 13);
             this.label_f1.TabIndex = 1;
+            this.label_f1.Text = ".";
             // 
             // label_ErrorMatrix
             // 
@@ -252,7 +253,6 @@
             this.textBox_ANumber.Name = "textBox_ANumber";
             this.textBox_ANumber.Size = new System.Drawing.Size(24, 20);
             this.textBox_ANumber.TabIndex = 3;
-            this.textBox_ANumber.TextChanged += new System.EventHandler(this.textBox_ANumber_TextChanged);
             // 
             // label5
             // 
@@ -269,7 +269,6 @@
             this.textBox_BNumber.Name = "textBox_BNumber";
             this.textBox_BNumber.Size = new System.Drawing.Size(24, 20);
             this.textBox_BNumber.TabIndex = 4;
-            this.textBox_BNumber.TextChanged += new System.EventHandler(this.textBox_BNumber_TextChanged);
             // 
             // label4
             // 

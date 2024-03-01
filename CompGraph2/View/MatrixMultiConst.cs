@@ -23,18 +23,11 @@ namespace CompGraph.View
         InputMatrix form2 = null;
         private int _number_of_lines;
         private int _number_of_columns;
-        private int _const;
+        private double _const;
 
         public MatrixMultiConst()
         {
             InitializeComponent();
-        }
-
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
             f1 = f2 = false;
             label_f1.Text = "false";
             label_f2.Text = "false";
@@ -67,41 +60,18 @@ namespace CompGraph.View
 
         private void Clear_MatrText()
         {
+            _number_of_columns = int.Parse(textBox_BNumber.Text);
+            _number_of_lines = int.Parse(textBox_ANumber.Text);
             // Обнуление ячеек MatrText
-            for (int i = 0; i < _number_of_lines; i++)
-                for (int j = 0; j < _number_of_columns; j++)
+            for (int i = 0; i < MaxN; i++)
+                for (int j = 0; j < MaxN; j++)
                     MatrText[i, j].Text = "0";
         }
 
 
-
-
-
-
-
-
-
-
-        private void textBox_ANumber_TextChanged(object sender, EventArgs e)
-        {
-
-            _number_of_lines = int.Parse(textBox_ANumber.Text);
-        }
-
-        private void textBox_BNumber_TextChanged(object sender, EventArgs e)
-        {
-            _number_of_columns = int.Parse(textBox_BNumber.Text);
-        }
-        private void textBox_Const_TextChanged(object sender, EventArgs e)
-        {
-            _const = int.Parse(textBox_Const.Text);
-        }
-
-
-
-
         private void button_EnterMatrix_Click(object sender, EventArgs e)
         {
+            
             try
             {
 
@@ -111,8 +81,11 @@ namespace CompGraph.View
                 {
                     throw new Exception("Check your value");
                 }
+                
                 // 2. Обнуление ячейки MatrText
                 Clear_MatrText();
+                _number_of_columns = int.Parse(textBox_BNumber.Text);
+                _number_of_lines = int.Parse(textBox_ANumber.Text);
                 // 3. Настройка свойств ячеек матрицы MatrText
                 //    с привязкой к значению n и форме Form2
                 for (int i = 0; i < _number_of_lines; i++)
@@ -124,10 +97,10 @@ namespace CompGraph.View
                         MatrText[i, j].Visible = true;
                     }
                 // 4. Корректировка размеров формы
-                form2.Width = 10 + _number_of_columns * dx + 20;
-                form2.Height = 10 + _number_of_lines * dy + form2.button1.Height + 50;
+                form2.Width = 10 + MaxN * dx + 20;
+                form2.Height = 10 + MaxN * dy + form2.button1.Height + 50;
                 // 5. Корректировка позиции и размеров кнопки на форме Form2 form2.button1.Left = 10;
-                form2.button1.Top = 10 + _number_of_lines * dy + 10;
+                form2.button1.Top = 10 + MaxN * dy + 10;
                 form2.button1.Width = form2.Width - 30;
                 // 6. Вызов формы Form2
                 if (form2.ShowDialog() == DialogResult.OK)
@@ -142,7 +115,7 @@ namespace CompGraph.View
                     // 8. Данные в матрицу Matr1 внесены
 
                     f1 = true;
-                    label2.Text = "true";
+                    label_f1.Text = "true";
                 }
             }
             catch(Exception ex)
@@ -152,11 +125,13 @@ namespace CompGraph.View
             }
         }
 
-        
-
         private void button_Multi_Click(object sender, EventArgs e)
         {
-            if (!((f1 == true) && (f2 == true))) return;
+            
+            if (!((f1 == true) || !(f2 == true))) return;
+            _const = double.Parse(textBox_Const.Text);
+            _number_of_columns = int.Parse(textBox_BNumber.Text);
+            _number_of_lines = int.Parse(textBox_ANumber.Text);
             // 2. Вычисление произведения матриц. Результат в Matr3
             for (int i = 0; i < _number_of_lines; i++)
                 for (int j = 0; j < _number_of_columns; j++)
@@ -164,6 +139,7 @@ namespace CompGraph.View
                     Matr3[i, j] = Matr1[i, j] * _const;
 
                 }
+            
             // 3. Внесение данных в MatrText
             for (int i = 0; i < _number_of_lines; i++)
                 for (int j = 0; j < _number_of_columns; j++)
@@ -182,16 +158,16 @@ namespace CompGraph.View
 
         }
 
-
         private void button_EnterConst_Click(object sender, EventArgs e)
         {
             try
             {
-                _const = int.Parse(textBox_Const.Text);
                 if (textBox_Const.Text == "")
                 {
                     throw new Exception("Check your value");
                 }
+                _const = double.Parse(textBox_Const.Text);
+                label_f2.Text = "true";
             }
             catch(Exception ex)
             {
@@ -200,25 +176,53 @@ namespace CompGraph.View
             }
         }
 
-        private void textBox1_Leave(object sender, EventArgs e)
+        private void textBox_ANumber_Leave(object sender, EventArgs e)
         {
             int aa;
-            int bb;
-            int cc;
-            cc = Int16.Parse(textBox_Const.Text);
+            _number_of_lines = int.Parse(textBox_ANumber.Text);
+            
             aa = Int16.Parse(textBox_ANumber.Text);
-            bb = Int16.Parse(textBox_BNumber.Text);
-            if (aa != _number_of_lines || bb != _number_of_columns)
+            
+            if (aa != _number_of_lines)
             {
                 f1 = false;
                 label_f1.Text = "false";
             }
+            
+        }
+        private void textBox_Const_Leave(object sender, EventArgs e)
+        {
+            
+            int cc;
+            _const = double.Parse(textBox_Const.Text);
+            
+            cc = Int16.Parse(textBox_Const.Text);
+            
+            
             if (cc != _const)
             {
                 f2 = false;
                 label_f2.Text = "false";
             }
         }
-        
+
+        private void textBox_BNumber_Leave(object sender, EventArgs e)
+        {
+            
+            int bb;
+            
+            
+            _number_of_columns = int.Parse(textBox_BNumber.Text);
+            
+            
+            bb = Int16.Parse(textBox_BNumber.Text);
+            if ( bb != _number_of_columns)
+            {
+                f1 = false;
+                label_f1.Text = "false";
+            }
+            
+        }
+
     }
 }

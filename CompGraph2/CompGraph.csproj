@@ -103,11 +103,11 @@
     <Compile Include="View\VectorModule.Designer.cs">
       <DependentUpon>VectorModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\VectorProductOfVectors.cs">
+    <Compile Include="View\VectorsMulti.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\VectorProductOfVectors.Designer.cs">
-      <DependentUpon>VectorProductOfVectors.cs</DependentUpon>
+    <Compile Include="View\VectorsMulti.Designer.cs">
+      <DependentUpon>VectorsMulti.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="View\ChooseLaboratory.resx">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
@@ -137,8 +137,8 @@
     <EmbeddedResource Include="View\VectorModule.resx">
       <DependentUpon>VectorModule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\VectorProductOfVectors.resx">
-      <DependentUpon>VectorProductOfVectors.cs</DependentUpon>
+    <EmbeddedResource Include="View\VectorsMulti.resx">
+      <DependentUpon>VectorsMulti.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
