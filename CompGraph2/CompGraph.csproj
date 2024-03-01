@@ -85,6 +85,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\MatrixMultiConst.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MatrixMultiConst.Designer.cs">
+      <DependentUpon>MatrixMultiConst.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MatrixOperations.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,6 +102,12 @@
     </Compile>
     <Compile Include="View\VectorModule.Designer.cs">
       <DependentUpon>VectorModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\VectorProductOfVectors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\VectorProductOfVectors.Designer.cs">
+      <DependentUpon>VectorProductOfVectors.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="View\ChooseLaboratory.resx">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
@@ -116,11 +128,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\MatrixMultiConst.resx">
+      <DependentUpon>MatrixMultiConst.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MatrixOperations.resx">
       <DependentUpon>MatrixOperations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\VectorModule.resx">
       <DependentUpon>VectorModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VectorProductOfVectors.resx">
+      <DependentUpon>VectorProductOfVectors.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
