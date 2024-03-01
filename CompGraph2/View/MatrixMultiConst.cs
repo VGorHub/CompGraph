@@ -182,6 +182,7 @@ namespace CompGraph.View
 
         }
 
+
         private void button_EnterConst_Click(object sender, EventArgs e)
         {
             try
