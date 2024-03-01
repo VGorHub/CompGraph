@@ -57,7 +57,7 @@ namespace CompGraph.View
             this.panel1.Controls.Add(this.NLabel);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(708, 572);
+            this.panel1.Size = new System.Drawing.Size(337, 419);
             this.panel1.TabIndex = 19;
             // 
             // RezultSubtractionButton
@@ -171,7 +171,7 @@ namespace CompGraph.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "MatrixOperations";
-            this.Size = new System.Drawing.Size(873, 682);
+            this.Size = new System.Drawing.Size(353, 435);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

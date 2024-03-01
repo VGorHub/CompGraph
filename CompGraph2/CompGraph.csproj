@@ -91,6 +91,12 @@
     <Compile Include="View\MatrixOperations.Designer.cs">
       <DependentUpon>MatrixOperations.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MatrixTransposition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MatrixTransposition.Designer.cs">
+      <DependentUpon>MatrixTransposition.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\VectorModule.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </Compile>
     <EmbeddedResource Include="View\MatrixOperations.resx">
       <DependentUpon>MatrixOperations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MatrixTransposition.resx">
+      <DependentUpon>MatrixTransposition.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\VectorModule.resx">
       <DependentUpon>VectorModule.cs</DependentUpon>
