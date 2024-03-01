@@ -85,6 +85,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\MatrixMultiplyVector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MatrixMultiplyVector.Designer.cs">
+      <DependentUpon>MatrixMultiplyVector.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MatrixOperations.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,6 +102,12 @@
     </Compile>
     <Compile Include="View\MatrixTransposition.Designer.cs">
       <DependentUpon>MatrixTransposition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ScalarProductOfVector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ScalarProductOfVector.Designer.cs">
+      <DependentUpon>ScalarProductOfVector.cs</DependentUpon>
     </Compile>
     <Compile Include="View\VectorModule.cs">
       <SubType>UserControl</SubType>
@@ -122,11 +134,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\MatrixMultiplyVector.resx">
+      <DependentUpon>MatrixMultiplyVector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MatrixOperations.resx">
       <DependentUpon>MatrixOperations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MatrixTransposition.resx">
       <DependentUpon>MatrixTransposition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ScalarProductOfVector.resx">
+      <DependentUpon>ScalarProductOfVector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\VectorModule.resx">
       <DependentUpon>VectorModule.cs</DependentUpon>
