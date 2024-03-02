@@ -40,10 +40,10 @@ namespace CompGraph.View
             this.panel2 = new System.Windows.Forms.Panel();
             this.LabFirstButton = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -173,23 +173,14 @@ namespace CompGraph.View
             this.panel6.Size = new System.Drawing.Size(415, 430);
             this.panel6.TabIndex = 2;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(121, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Горохов Владимир Игоревич  582-1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(121, 90);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Баранов Антон Александрович 582-1";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(121, 149);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(183, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Ершов Григорий Аркадьевич 582-1";
             // 
             // label3
             // 
@@ -200,14 +191,23 @@ namespace CompGraph.View
             this.label3.TabIndex = 2;
             this.label3.Text = "Дурновцев Степан Алексеевич 582-1";
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(121, 149);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(183, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Ершов Григорий Аркадьевич 582-1";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(121, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(194, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Баранов Антон Александрович 582-1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(121, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(187, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Горохов Владимир Иванович  582-1";
             // 
             // ChooseLaboratory
             // 

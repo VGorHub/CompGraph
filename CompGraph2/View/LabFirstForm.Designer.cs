@@ -34,13 +34,13 @@ namespace CompGraph
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.scalarProductOfVector2 = new CompGraph.View.ScalarProductOfVector();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.matrixMultiplyVector2 = new CompGraph.View.MatrixMultiplyVector();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.matrixMultiConst1 = new CompGraph.View.MatrixMultiConst();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.vectorsMulti1 = new CompGraph.View.VectorsMulti();
-            this.scalarProductOfVector2 = new CompGraph.View.ScalarProductOfVector();
-            this.matrixMultiplyVector2 = new CompGraph.View.MatrixMultiplyVector();
             this.TabControl.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -105,6 +105,13 @@ namespace CompGraph
             this.tabPage4.Text = "Scalar Product Of Vectors";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // scalarProductOfVector2
+            // 
+            this.scalarProductOfVector2.Location = new System.Drawing.Point(3, 3);
+            this.scalarProductOfVector2.Name = "scalarProductOfVector2";
+            this.scalarProductOfVector2.Size = new System.Drawing.Size(722, 580);
+            this.scalarProductOfVector2.TabIndex = 0;
+            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.matrixMultiplyVector2);
@@ -115,6 +122,13 @@ namespace CompGraph
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Marix X Vector";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // matrixMultiplyVector2
+            // 
+            this.matrixMultiplyVector2.Location = new System.Drawing.Point(3, 2);
+            this.matrixMultiplyVector2.Name = "matrixMultiplyVector2";
+            this.matrixMultiplyVector2.Size = new System.Drawing.Size(647, 804);
+            this.matrixMultiplyVector2.TabIndex = 0;
             // 
             // tabPage6
             // 
@@ -151,20 +165,6 @@ namespace CompGraph
             this.vectorsMulti1.Name = "vectorsMulti1";
             this.vectorsMulti1.Size = new System.Drawing.Size(528, 520);
             this.vectorsMulti1.TabIndex = 0;
-            // 
-            // scalarProductOfVector2
-            // 
-            this.scalarProductOfVector2.Location = new System.Drawing.Point(3, 3);
-            this.scalarProductOfVector2.Name = "scalarProductOfVector2";
-            this.scalarProductOfVector2.Size = new System.Drawing.Size(722, 580);
-            this.scalarProductOfVector2.TabIndex = 0;
-            // 
-            // matrixMultiplyVector2
-            // 
-            this.matrixMultiplyVector2.Location = new System.Drawing.Point(3, 2);
-            this.matrixMultiplyVector2.Name = "matrixMultiplyVector2";
-            this.matrixMultiplyVector2.Size = new System.Drawing.Size(647, 804);
-            this.matrixMultiplyVector2.TabIndex = 0;
             // 
             // LabFirstForm
             // 
