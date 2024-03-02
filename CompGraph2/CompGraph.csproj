@@ -115,6 +115,12 @@
     <Compile Include="View\VectorModule.Designer.cs">
       <DependentUpon>VectorModule.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\VectorsMulti.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\VectorsMulti.Designer.cs">
+      <DependentUpon>VectorsMulti.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\ChooseLaboratory.resx">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\VectorModule.resx">
       <DependentUpon>VectorModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VectorsMulti.resx">
+      <DependentUpon>VectorsMulti.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

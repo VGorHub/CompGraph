@@ -29,6 +29,7 @@ namespace CompGraph
         /// </summary>
         private void InitializeComponent()
         {
+
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -38,11 +39,13 @@ namespace CompGraph
             this.matrixTransposition1 = new CompGraph.View.MatrixTransposition();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.matrixMultiplyVector1 = new CompGraph.View.MatrixMultiplyVector();
+
             this.TabControl.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
+
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -75,6 +78,7 @@ namespace CompGraph
             // 
             // TabControl
             // 
+
             this.TabControl.Controls.Add(this.tabPage1);
             this.TabControl.Controls.Add(this.tabPage2);
             this.TabControl.Controls.Add(this.tabPage3);
@@ -85,6 +89,8 @@ namespace CompGraph
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
             this.TabControl.Size = new System.Drawing.Size(1224, 838);
+            this.TabControl.TabIndex = 9;
+            this.TabControl.Size = new System.Drawing.Size(986, 558);
             this.TabControl.TabIndex = 9;
             // 
             // tabPage4
@@ -99,6 +105,7 @@ namespace CompGraph
             this.tabPage4.Text = "Scalar Product Of Vectors";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+
             // scalarProductOfVector1
             // 
             this.scalarProductOfVector1.Location = new System.Drawing.Point(8, 6);
@@ -130,6 +137,7 @@ namespace CompGraph
             this.matrixMultiplyVector1.Name = "matrixMultiplyVector1";
             this.matrixMultiplyVector1.Size = new System.Drawing.Size(647, 804);
             this.matrixMultiplyVector1.TabIndex = 0;
+
             // 
             // LabFirstForm
             // 
@@ -147,6 +155,7 @@ namespace CompGraph
 
         }
 
+
         #endregion
         private View.VectorModule vectorModulе1;
         private System.Windows.Forms.TabPage tabPage3;
@@ -158,6 +167,7 @@ namespace CompGraph
         private View.ScalarProductOfVector scalarProductOfVector1;
         private System.Windows.Forms.TabPage tabPage5;
         private View.MatrixMultiplyVector matrixMultiplyVector1;
+
     }
 }
 

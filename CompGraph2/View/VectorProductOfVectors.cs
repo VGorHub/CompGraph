@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CompGraph
+namespace CompGraph.View
 {
-    public partial class InputMatrix : Form
+    public partial class VectorProductOfVectors : UserControl
     {
-        public InputMatrix()
+        public VectorProductOfVectors()
         {
             InitializeComponent();
         }
     }
 }
-
