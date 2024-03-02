@@ -29,40 +29,11 @@ namespace CompGraph
         /// </summary>
         private void InitializeComponent()
         {
-            this.TabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.matrixMultiConst1 = new CompGraph.View.MatrixMultiConst();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.vectorsMulti1 = new CompGraph.View.VectorsMulti();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.TabControl = new System.Windows.Forms.TabControl();
             this.TabControl.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // TabControl
-            // 
-            this.TabControl.Controls.Add(this.tabPage1);
-            this.TabControl.Controls.Add(this.tabPage2);
-            this.TabControl.Controls.Add(this.tabPage3);
-            this.TabControl.Controls.Add(this.tabPage4);
-            this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabControl.Location = new System.Drawing.Point(0, 0);
-            this.TabControl.Name = "TabControl";
-            this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(986, 558);
-            this.TabControl.TabIndex = 9;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(978, 532);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -74,41 +45,26 @@ namespace CompGraph
             this.tabPage2.Text = "Vector Module";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // tabPage1
             // 
-            this.tabPage3.Controls.Add(this.matrixMultiConst1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(978, 532);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Ex1";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(978, 532);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // matrixMultiConst1
+            // TabControl
             // 
-            this.matrixMultiConst1.Location = new System.Drawing.Point(6, 6);
-            this.matrixMultiConst1.Name = "matrixMultiConst1";
-            this.matrixMultiConst1.Size = new System.Drawing.Size(479, 352);
-            this.matrixMultiConst1.TabIndex = 0;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.vectorsMulti1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(978, 532);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Ex 4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // vectorsMulti1
-            // 
-            this.vectorsMulti1.Location = new System.Drawing.Point(3, 3);
-            this.vectorsMulti1.Name = "vectorsMulti1";
-            this.vectorsMulti1.Size = new System.Drawing.Size(528, 520);
-            this.vectorsMulti1.TabIndex = 0;
+            this.TabControl.Controls.Add(this.tabPage1);
+            this.TabControl.Controls.Add(this.tabPage2);
+            this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabControl.Location = new System.Drawing.Point(0, 0);
+            this.TabControl.Name = "TabControl";
+            this.TabControl.SelectedIndex = 0;
+            this.TabControl.Size = new System.Drawing.Size(986, 558);
+            this.TabControl.TabIndex = 9;
             // 
             // LabFirstForm
             // 
@@ -120,21 +76,17 @@ namespace CompGraph
             this.Text = "LabFirst";
             this.Load += new System.EventHandler(this.LabFirstForm_Load);
             this.TabControl.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.TabControl TabControl;
-        private System.Windows.Forms.TabPage tabPage1;
         private View.VectorModule vectorModulе1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
         private View.MatrixMultiConst matrixMultiConst1;
-        private System.Windows.Forms.TabPage tabPage4;
         private View.VectorsMulti vectorsMulti1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl TabControl;
     }
 }
 
