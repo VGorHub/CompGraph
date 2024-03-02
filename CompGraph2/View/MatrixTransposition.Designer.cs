@@ -47,17 +47,19 @@ namespace CompGraph.View
             this.panel1.Controls.Add(this.DimensionNMatrixTexBox);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.NLabel);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(447, 523);
+            this.panel1.Size = new System.Drawing.Size(476, 333);
             this.panel1.TabIndex = 20;
             // 
             // SaveInFileButton
             // 
             this.SaveInFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SaveInFileButton.Location = new System.Drawing.Point(26, 184);
+            this.SaveInFileButton.Location = new System.Drawing.Point(35, 226);
+            this.SaveInFileButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SaveInFileButton.Name = "SaveInFileButton";
-            this.SaveInFileButton.Size = new System.Drawing.Size(298, 61);
+            this.SaveInFileButton.Size = new System.Drawing.Size(397, 75);
             this.SaveInFileButton.TabIndex = 25;
             this.SaveInFileButton.Text = "Сохранить в файле “Trans_Matr.txt";
             this.SaveInFileButton.UseVisualStyleBackColor = true;
@@ -66,9 +68,10 @@ namespace CompGraph.View
             // ResultTranspositionButton
             // 
             this.ResultTranspositionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ResultTranspositionButton.Location = new System.Drawing.Point(26, 117);
+            this.ResultTranspositionButton.Location = new System.Drawing.Point(35, 144);
+            this.ResultTranspositionButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ResultTranspositionButton.Name = "ResultTranspositionButton";
-            this.ResultTranspositionButton.Size = new System.Drawing.Size(298, 61);
+            this.ResultTranspositionButton.Size = new System.Drawing.Size(397, 75);
             this.ResultTranspositionButton.TabIndex = 26;
             this.ResultTranspositionButton.Text = "Результат Транспонирования";
             this.ResultTranspositionButton.UseVisualStyleBackColor = true;
@@ -77,9 +80,10 @@ namespace CompGraph.View
             // InputFirstMatrixButton
             // 
             this.InputFirstMatrixButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.InputFirstMatrixButton.Location = new System.Drawing.Point(26, 58);
+            this.InputFirstMatrixButton.Location = new System.Drawing.Point(35, 71);
+            this.InputFirstMatrixButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.InputFirstMatrixButton.Name = "InputFirstMatrixButton";
-            this.InputFirstMatrixButton.Size = new System.Drawing.Size(206, 53);
+            this.InputFirstMatrixButton.Size = new System.Drawing.Size(275, 65);
             this.InputFirstMatrixButton.TabIndex = 23;
             this.InputFirstMatrixButton.Text = "Ввод Матрицы 1";
             this.InputFirstMatrixButton.UseVisualStyleBackColor = true;
@@ -88,9 +92,10 @@ namespace CompGraph.View
             // DimensionNMatrixTexBox
             // 
             this.DimensionNMatrixTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DimensionNMatrixTexBox.Location = new System.Drawing.Point(77, 14);
+            this.DimensionNMatrixTexBox.Location = new System.Drawing.Point(103, 17);
+            this.DimensionNMatrixTexBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DimensionNMatrixTexBox.Name = "DimensionNMatrixTexBox";
-            this.DimensionNMatrixTexBox.Size = new System.Drawing.Size(247, 38);
+            this.DimensionNMatrixTexBox.Size = new System.Drawing.Size(328, 45);
             this.DimensionNMatrixTexBox.TabIndex = 22;
             this.DimensionNMatrixTexBox.Leave += new System.EventHandler(this.DimensionNMatrixTexBox_Leave);
             // 
@@ -98,9 +103,10 @@ namespace CompGraph.View
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(238, 58);
+            this.label2.Location = new System.Drawing.Point(317, 71);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 31);
+            this.label2.Size = new System.Drawing.Size(109, 39);
             this.label2.TabIndex = 20;
             this.label2.Text = "label2";
             // 
@@ -108,19 +114,21 @@ namespace CompGraph.View
             // 
             this.NLabel.AutoSize = true;
             this.NLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NLabel.Location = new System.Drawing.Point(20, 14);
+            this.NLabel.Location = new System.Drawing.Point(27, 17);
+            this.NLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NLabel.Name = "NLabel";
-            this.NLabel.Size = new System.Drawing.Size(64, 31);
+            this.NLabel.Size = new System.Drawing.Size(80, 39);
             this.NLabel.TabIndex = 19;
             this.NLabel.Text = "N = ";
             // 
             // MatrixTransposition
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MatrixTransposition";
-            this.Size = new System.Drawing.Size(686, 572);
+            this.Size = new System.Drawing.Size(484, 341);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

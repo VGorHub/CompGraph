@@ -50,17 +50,19 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.NLabel);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(507, 430);
+            this.panel1.Size = new System.Drawing.Size(476, 464);
             this.panel1.TabIndex = 20;
             // 
             // SaveInFileButton
             // 
             this.SaveInFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SaveInFileButton.Location = new System.Drawing.Point(26, 270);
+            this.SaveInFileButton.Location = new System.Drawing.Point(35, 314);
+            this.SaveInFileButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SaveInFileButton.Name = "SaveInFileButton";
-            this.SaveInFileButton.Size = new System.Drawing.Size(298, 61);
+            this.SaveInFileButton.Size = new System.Drawing.Size(397, 75);
             this.SaveInFileButton.TabIndex = 25;
             this.SaveInFileButton.Text = "Сохранить в файле “Res_Matr.txt";
             this.SaveInFileButton.UseVisualStyleBackColor = true;
@@ -68,9 +70,10 @@
             // ResultMultiplicationButton
             // 
             this.ResultMultiplicationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ResultMultiplicationButton.Location = new System.Drawing.Point(26, 203);
+            this.ResultMultiplicationButton.Location = new System.Drawing.Point(35, 231);
+            this.ResultMultiplicationButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ResultMultiplicationButton.Name = "ResultMultiplicationButton";
-            this.ResultMultiplicationButton.Size = new System.Drawing.Size(298, 61);
+            this.ResultMultiplicationButton.Size = new System.Drawing.Size(397, 75);
             this.ResultMultiplicationButton.TabIndex = 26;
             this.ResultMultiplicationButton.Text = "Результат Умножения";
             this.ResultMultiplicationButton.UseVisualStyleBackColor = true;
@@ -79,9 +82,10 @@
             // InputVectorButton
             // 
             this.InputVectorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.InputVectorButton.Location = new System.Drawing.Point(26, 129);
+            this.InputVectorButton.Location = new System.Drawing.Point(34, 158);
+            this.InputVectorButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.InputVectorButton.Name = "InputVectorButton";
-            this.InputVectorButton.Size = new System.Drawing.Size(206, 53);
+            this.InputVectorButton.Size = new System.Drawing.Size(275, 65);
             this.InputVectorButton.TabIndex = 24;
             this.InputVectorButton.Text = "Ввод Вектора";
             this.InputVectorButton.UseVisualStyleBackColor = true;
@@ -90,9 +94,10 @@
             // InputMatrixButton
             // 
             this.InputMatrixButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.InputMatrixButton.Location = new System.Drawing.Point(26, 70);
+            this.InputMatrixButton.Location = new System.Drawing.Point(35, 86);
+            this.InputMatrixButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.InputMatrixButton.Name = "InputMatrixButton";
-            this.InputMatrixButton.Size = new System.Drawing.Size(206, 53);
+            this.InputMatrixButton.Size = new System.Drawing.Size(275, 65);
             this.InputMatrixButton.TabIndex = 23;
             this.InputMatrixButton.Text = "Ввод Матрицы ";
             this.InputMatrixButton.UseVisualStyleBackColor = true;
@@ -101,18 +106,20 @@
             // DimensionMatrixTexBox
             // 
             this.DimensionMatrixTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DimensionMatrixTexBox.Location = new System.Drawing.Point(77, 14);
+            this.DimensionMatrixTexBox.Location = new System.Drawing.Point(103, 17);
+            this.DimensionMatrixTexBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DimensionMatrixTexBox.Name = "DimensionMatrixTexBox";
-            this.DimensionMatrixTexBox.Size = new System.Drawing.Size(247, 38);
+            this.DimensionMatrixTexBox.Size = new System.Drawing.Size(328, 45);
             this.DimensionMatrixTexBox.TabIndex = 22;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(238, 137);
+            this.label3.Location = new System.Drawing.Point(317, 169);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 31);
+            this.label3.Size = new System.Drawing.Size(109, 39);
             this.label3.TabIndex = 21;
             this.label3.Text = "label3";
             // 
@@ -120,9 +127,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(238, 70);
+            this.label2.Location = new System.Drawing.Point(318, 97);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 31);
+            this.label2.Size = new System.Drawing.Size(109, 39);
             this.label2.TabIndex = 20;
             this.label2.Text = "label2";
             // 
@@ -130,19 +138,21 @@
             // 
             this.NLabel.AutoSize = true;
             this.NLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NLabel.Location = new System.Drawing.Point(20, 14);
+            this.NLabel.Location = new System.Drawing.Point(27, 17);
+            this.NLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NLabel.Name = "NLabel";
-            this.NLabel.Size = new System.Drawing.Size(64, 31);
+            this.NLabel.Size = new System.Drawing.Size(80, 39);
             this.NLabel.TabIndex = 19;
             this.NLabel.Text = "N = ";
             // 
             // MatrixMultiplyVector
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MatrixMultiplyVector";
-            this.Size = new System.Drawing.Size(647, 804);
+            this.Size = new System.Drawing.Size(484, 472);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
