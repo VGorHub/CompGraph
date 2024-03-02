@@ -29,23 +29,25 @@ namespace CompGraph
         /// </summary>
         private void InitializeComponent()
         {
-
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.scalarProductOfVector1 = new CompGraph.View.ScalarProductOfVector();
-            this.matrixTransposition1 = new CompGraph.View.MatrixTransposition();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.matrixMultiplyVector1 = new CompGraph.View.MatrixMultiplyVector();
-
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.matrixMultiConst1 = new CompGraph.View.MatrixMultiConst();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.vectorsMulti1 = new CompGraph.View.VectorsMulti();
+            this.scalarProductOfVector2 = new CompGraph.View.ScalarProductOfVector();
+            this.matrixMultiplyVector2 = new CompGraph.View.MatrixMultiplyVector();
             this.TabControl.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
             this.SuspendLayout();
             // 
-
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -78,25 +80,23 @@ namespace CompGraph
             // 
             // TabControl
             // 
-
             this.TabControl.Controls.Add(this.tabPage1);
             this.TabControl.Controls.Add(this.tabPage2);
             this.TabControl.Controls.Add(this.tabPage3);
             this.TabControl.Controls.Add(this.tabPage4);
             this.TabControl.Controls.Add(this.tabPage5);
+            this.TabControl.Controls.Add(this.tabPage6);
+            this.TabControl.Controls.Add(this.tabPage7);
             this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabControl.Location = new System.Drawing.Point(0, 0);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
             this.TabControl.Size = new System.Drawing.Size(1224, 838);
             this.TabControl.TabIndex = 9;
-            this.TabControl.Size = new System.Drawing.Size(986, 558);
-            this.TabControl.TabIndex = 9;
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.scalarProductOfVector1);
-            this.tabPage4.Controls.Add(this.matrixTransposition1);
+            this.tabPage4.Controls.Add(this.scalarProductOfVector2);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -105,24 +105,9 @@ namespace CompGraph
             this.tabPage4.Text = "Scalar Product Of Vectors";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-
-            // scalarProductOfVector1
-            // 
-            this.scalarProductOfVector1.Location = new System.Drawing.Point(8, 6);
-            this.scalarProductOfVector1.Name = "scalarProductOfVector1";
-            this.scalarProductOfVector1.Size = new System.Drawing.Size(722, 580);
-            this.scalarProductOfVector1.TabIndex = 1;
-            // 
-            // matrixTransposition1
-            // 
-            this.matrixTransposition1.Location = new System.Drawing.Point(633, 196);
-            this.matrixTransposition1.Name = "matrixTransposition1";
-            this.matrixTransposition1.Size = new System.Drawing.Size(8, 8);
-            this.matrixTransposition1.TabIndex = 0;
-            // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.matrixMultiplyVector1);
+            this.tabPage5.Controls.Add(this.matrixMultiplyVector2);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -131,13 +116,55 @@ namespace CompGraph
             this.tabPage5.Text = "Marix X Vector";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // matrixMultiplyVector1
+            // tabPage6
             // 
-            this.matrixMultiplyVector1.Location = new System.Drawing.Point(3, 6);
-            this.matrixMultiplyVector1.Name = "matrixMultiplyVector1";
-            this.matrixMultiplyVector1.Size = new System.Drawing.Size(647, 804);
-            this.matrixMultiplyVector1.TabIndex = 0;
-
+            this.tabPage6.Controls.Add(this.matrixMultiConst1);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1216, 812);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "MatrixMultiConst";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // matrixMultiConst1
+            // 
+            this.matrixMultiConst1.Location = new System.Drawing.Point(3, 3);
+            this.matrixMultiConst1.Name = "matrixMultiConst1";
+            this.matrixMultiConst1.Size = new System.Drawing.Size(479, 352);
+            this.matrixMultiConst1.TabIndex = 0;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.vectorsMulti1);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(1216, 812);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "VectorsMulti";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // vectorsMulti1
+            // 
+            this.vectorsMulti1.Location = new System.Drawing.Point(3, 3);
+            this.vectorsMulti1.Name = "vectorsMulti1";
+            this.vectorsMulti1.Size = new System.Drawing.Size(528, 520);
+            this.vectorsMulti1.TabIndex = 0;
+            // 
+            // scalarProductOfVector2
+            // 
+            this.scalarProductOfVector2.Location = new System.Drawing.Point(3, 3);
+            this.scalarProductOfVector2.Name = "scalarProductOfVector2";
+            this.scalarProductOfVector2.Size = new System.Drawing.Size(722, 580);
+            this.scalarProductOfVector2.TabIndex = 0;
+            // 
+            // matrixMultiplyVector2
+            // 
+            this.matrixMultiplyVector2.Location = new System.Drawing.Point(3, 2);
+            this.matrixMultiplyVector2.Name = "matrixMultiplyVector2";
+            this.matrixMultiplyVector2.Size = new System.Drawing.Size(647, 804);
+            this.matrixMultiplyVector2.TabIndex = 0;
             // 
             // LabFirstForm
             // 
@@ -151,6 +178,8 @@ namespace CompGraph
             this.TabControl.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -167,7 +196,12 @@ namespace CompGraph
         private View.ScalarProductOfVector scalarProductOfVector1;
         private System.Windows.Forms.TabPage tabPage5;
         private View.MatrixMultiplyVector matrixMultiplyVector1;
-
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabPage7;
+        private View.MatrixMultiConst matrixMultiConst1;
+        private View.VectorsMulti vectorsMulti1;
+        private View.ScalarProductOfVector scalarProductOfVector2;
+        private View.MatrixMultiplyVector matrixMultiplyVector2;
     }
 }
 
