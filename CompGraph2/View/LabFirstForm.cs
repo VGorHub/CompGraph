@@ -19,12 +19,16 @@ namespace CompGraph
 
         private void LabFirstForm_Load(object sender, EventArgs e)
         {
-            MatrixOperations tab1 = new MatrixOperations();            
-            tab1.Dock = DockStyle.Fill;            
-            TabControl.TabPages[0].Controls.Add(tab1);
-            VectorModule tab2 = new VectorModule();
-            tab2.Dock = DockStyle.Fill;
-            TabControl.TabPages[1].Controls.Add(tab2);
+            MatrixOperations мatrixOperations = new MatrixOperations();
+            мatrixOperations.Dock = DockStyle.Fill;            
+            TabControl.TabPages[0].Controls.Add(мatrixOperations);
+            VectorModule vectorModule = new VectorModule();
+            vectorModule.Dock = DockStyle.Fill;
+            TabControl.TabPages[1].Controls.Add(vectorModule);
+            MatrixTransposition matrixTransposition = new MatrixTransposition();
+            matrixTransposition.Dock = DockStyle.Fill;
+            TabControl.TabPages[2].Controls.Add(matrixTransposition);
+
         }
 
         public LabFirstForm()
