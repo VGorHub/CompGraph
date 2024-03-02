@@ -153,9 +153,9 @@ namespace CompGraph.View
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < n; j++)
                 {
-                    Matr3[j, i] = 0;
+                    Matr3[i, j] = 0;
 
-                    Matr3[j, i] = Matr1[i, j] + Matr2[i, j];
+                    Matr3[i, j] = Matr1[i, j] + Matr2[i, j];
                 }
             // 3. Внесение данных в MatrText
             for (int i = 0; i < n; i++)
@@ -178,9 +178,9 @@ namespace CompGraph.View
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < n; j++)
                 {
-                    Matr3[j, i] = 0;
+                    Matr3[i, j] = 0;
 
-                    Matr3[j, i] = Matr1[i, j] - Matr2[i, j];
+                    Matr3[i, j] = Matr1[i, j] - Matr2[i, j];
                 }
             // 3. Внесение данных в MatrText
             for (int i = 0; i < n; i++)
