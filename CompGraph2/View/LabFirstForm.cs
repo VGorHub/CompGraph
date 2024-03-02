@@ -16,6 +16,7 @@ namespace CompGraph
     public partial class LabFirstForm : Form
     {
 
+
         private void LabFirstForm_Load(object sender, EventArgs e)
         {
             MatrixOperations tab1 = new MatrixOperations();            
