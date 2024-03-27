@@ -33,9 +33,11 @@
             // 
             // labSecond1
             // 
-            this.labSecond1.Location = new System.Drawing.Point(1, 1);
+            this.labSecond1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labSecond1.Location = new System.Drawing.Point(0, 0);
+            this.labSecond1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labSecond1.Name = "labSecond1";
-            this.labSecond1.Size = new System.Drawing.Size(738, 533);
+            this.labSecond1.Size = new System.Drawing.Size(741, 535);
             this.labSecond1.TabIndex = 0;
             // 
             // LabSecondForm

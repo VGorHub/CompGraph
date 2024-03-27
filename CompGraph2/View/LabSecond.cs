@@ -25,10 +25,11 @@ namespace CompGraph.View
             myBitmap = new Bitmap(pictureBox1.Width+200, pictureBox1.Height);
         }
 
+        //ДОБАВЬТЕ СВОИ РАДИОБАТТОНЫ В ВАЛИДАЦИЮ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             {
-                if (radioButton1.Checked == true || radioButton3.Checked == true)
+                if (radioButton1.Checked == true || radioButton3.Checked == true || radioButton4.Checked == true)
                 {
                     xn = e.X;
                     yn = e.Y;
@@ -85,6 +86,12 @@ namespace CompGraph.View
                 
                 DrawBresenhamLine(xn, yn, xk, yk);
 
+            }
+            else if (radioButton4.Checked)
+            {
+                xk = e.X;
+                yk = e.Y;
+                LineFill();
             }
 
         }
@@ -174,7 +181,7 @@ namespace CompGraph.View
 
                     //Рисуем закрашенный прямоугольник:
                     //Объявляем объект "redBrush", задающий цвет кисти
-                    SolidBrush redBrush = new SolidBrush(Color.Red);
+                    SolidBrush redBrush = new SolidBrush(currentBorderColor);
 
                     //Рисуем закрашенный прямоугольник
                     g.FillRectangle(redBrush, x, y, 5, 5);
@@ -325,6 +332,101 @@ namespace CompGraph.View
 
         }
 
+        private void LineFill()
+        {
+
+            Stack<Point> pixels = new Stack<Point>();
+            
+            //Затравка в стек
+            pixels.Push(new Point(xn, yn));
+
+            //Задаём цвет заливки
+            Color workColor = myBitmap.GetPixel(xn, yn);
+
+            if (workColor == currentBorderColor)
+            {
+                return;
+            }
+
+            while (pixels.Count > 0)
+            {
+                //Достаём пиксель из стека
+                Point xyr = pixels.Pop();
+
+                if (myBitmap.GetPixel(xyr.X, xyr.Y) != workColor)
+                {
+                    continue;
+                }
+
+                //Для движения в другую сторону
+                Point xyl = xyr;
+
+                //Вправо
+                do
+                {
+                    //Ставим пиксель
+                    myBitmap.SetPixel(xyr.X, xyr.Y, currentBorderColor);
+
+                    xyr.X = xyr.X + 1;
+
+                } while (myBitmap.GetPixel(xyr.X, xyr.Y) == workColor);
+
+                //Влево
+                do
+                {
+                    //Ставим пиксель
+                    myBitmap.SetPixel(xyl.X, xyl.Y, currentBorderColor);
+
+                    xyl.X = xyl.X - 1;
+
+                } while (myBitmap.GetPixel(xyl.X, xyl.Y) == workColor);
+
+                //Поставлен ли пиксель в конце
+                bool endIsPlace = false;
+
+                //Ниже
+                for (int x = xyl.X+1; x < xyr.X; x++)
+                {
+                    endIsPlace = false;
+                    if (myBitmap.GetPixel(x, xyl.Y-1) == workColor)
+                    {
+                        if (myBitmap.GetPixel(x+1, xyl.Y - 1) != workColor)
+                        {
+                            pixels.Push(new Point(x, xyl.Y - 1));
+
+                            endIsPlace = true;
+                        }
+                    }
+                }
+                if (myBitmap.GetPixel(xyr.X-1, xyl.Y - 1) == workColor & endIsPlace != true)
+                {
+                    pixels.Push(new Point(xyr.X-1, xyl.Y - 1));
+                }
+
+                //Выше
+                for (int x = xyl.X + 1; x < xyr.X; x++)
+                {
+                    endIsPlace = false;
+                    if (myBitmap.GetPixel(x, xyl.Y + 1) == workColor)
+                    {
+                        if (myBitmap.GetPixel(x + 1, xyl.Y + 1) != workColor)
+                        {
+                            pixels.Push(new Point(x, xyl.Y + 1));
+
+                            endIsPlace = true;
+                        }
+                    }
+                }
+                if (myBitmap.GetPixel(xyr.X-1, xyl.Y + 1) == workColor & endIsPlace != true)
+                {
+                    pixels.Push(new Point(xyr.X-1, xyl.Y + 1));
+                }
+                
+            }
+
+            pictureBox1.Image = myBitmap;
+
+        }
 
     }
 }
