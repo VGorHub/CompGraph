@@ -164,7 +164,7 @@ namespace CompGraph.View
 
         private void PutPixel(int x, int y , Pen myPen,int counter = 0)
         {
-            Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
+            Graphics g = Graphics.FromImage(myBitmap);
 
             switch (currentPenStile)
             {
@@ -205,6 +205,8 @@ namespace CompGraph.View
                     break;
 
             }
+            //передаем полученный растр mybitmap в элемент pictureBox
+            pictureBox1.Image = myBitmap;
         }
 
         private void CDA(int xStart, int yStart, int xEnd, int yEnd)
