@@ -14,19 +14,21 @@ namespace CompGraph.View
     {
 
         private int xn, yn, xk, yk;
-        Bitmap myBitmap; // объект Bitmap для вывода отрезка
-        Color currentBorderColor; // текущий цвет отрезка и текущий цвет заливки
-
+        Bitmap myBitmap ; // объект Bitmap для вывода отрезка
+        Color currentBorderColor = Color.Black ; // текущий цвет отрезка и текущий цвет заливки
+        string currentPenStile = "Тонкая";
 
         public LabSecond()
         {
             InitializeComponent();
+            comboBoxLineStyle.SelectedIndex =0;
+            myBitmap = new Bitmap(pictureBox1.Width+200, pictureBox1.Height);
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             {
-                if (radioButton1.Checked == true)
+                if (radioButton1.Checked == true || radioButton3.Checked == true)
                 {
                     xn = e.X;
                     yn = e.Y;
@@ -34,44 +36,55 @@ namespace CompGraph.View
                 else MessageBox.Show("Вы не выбрали алгоритм вывода фигуры!");
             }
         }
-
+        private Point GetCoordinatesOnPictureBox(MouseEventArgs e)
+        {
+            // Получаем координаты клика относительно контрола pictureBox1
+            Point locationOnPictureBox = pictureBox1.PointToClient(e.Location);
+            return locationOnPictureBox;
+        }
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            //numberNodes – переменная, задающая количество узлов для
-            //аппроксимации отрезка
-            //xOutput – x-координата очередного узла
-            //yOutput – y-координата очередного узла
-            int index, numberNodes;
-            double xOutput, yOutput, dx, dy;
-
-            //Объявляем объект "myPen", задающий цвет и толщину пера
-            Pen myPen = new Pen(Color.Red, 1);
-
-            //Объявляем объект "g" класса Graphics и предоставляем
-            //ему возможность рисования на pictureBox1:
-            Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
-
-            //реализация обычного алгоритма ЦДА
-            xk = e.X;
-            yk = e.Y;
-            dx = xk - xn;
-            dy = yk - yn;
-            numberNodes = 200;
-            xOutput = xn;
-            yOutput = yn;
-            for (index = 1; index <= numberNodes; index++)
+            if (radioButton1.Checked)
             {
-                //Рисуем прямоугольник
-                g.DrawRectangle(myPen, (int)xOutput, (int)yOutput, 2, 2);
+                //numberNodes – переменная, задающая количество узлов для
+                //аппроксимации отрезка
+                //xOutput – x-координата очередного узла
+                //yOutput – y-координата очередного узла
+                int index, numberNodes;
+                double xOutput, yOutput, dx, dy;
 
-                //Рисуем закрашенный прямоугольник:
-                //Объявляем объект "redBrush", задающий цвет кисти
-                //SolidBrush redBrush = new SolidBrush(Color.Red);
+                //Объявляем объект "myPen", задающий цвет и толщину пера
+                Pen myPen = new Pen(currentBorderColor, 1);
 
-                //Рисуем закрашенный прямоугольник
-                //g.FillRectangle(redBrush, (int)xOutput, (int)yOutput, 2, 2);
-                xOutput = xOutput + dx / numberNodes;
-                yOutput = yOutput + dy / numberNodes;
+                //Объявляем объект "g" класса Graphics и предоставляем
+                //ему возможность рисования на pictureBox1:
+                Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
+
+                //реализация обычного алгоритма ЦДА
+                xk = e.X;
+                yk = e.Y;
+                dx = xk - xn;
+                dy = yk - yn;
+                numberNodes = 200;
+                xOutput = xn;
+                yOutput = yn;
+                for (index = 1; index <= numberNodes; index++)
+                {
+                    
+                    PutPixel((int)xOutput, (int)yOutput,myPen, index);
+                    xOutput = xOutput + dx / numberNodes;
+                    yOutput = yOutput + dy / numberNodes;
+
+                }
+            }
+            else if (radioButton3.Checked)
+            {
+                
+                xk = e.X;
+                yk = e.Y;
+                
+                DrawBresenhamLine(xn, yn, xk, yk);
+
             }
 
         }
@@ -93,6 +106,98 @@ namespace CompGraph.View
             pictureBox1.Image = myBitmap;
             // pictureBox1.Image = null;
 
+        }
+        private void DrawBresenhamLine(int xn, int yn, int xk, int yk)
+        {
+            int X = xn;
+            int Y = yn;
+            int Px = Math.Abs(xk - xn);
+            int Py = Math.Abs(yk - yn);
+            int stepX = Math.Sign(xk - xn);//возвращает знак разности между xk и xn.(-1 || 1 || 0)
+            int stepY = Math.Sign(yk - yn);
+            int E;
+            Pen myPen = new Pen(currentBorderColor, 1);
+            if (Py <= Px) // 0 <= |Py| <= |Px|
+            {
+                E = 2 * Py - Px;
+                for (int i = 0; i <= Px; i++)
+                {
+                    PutPixel(X, Y,myPen,i); // Установка пикселя
+
+                    if (E >= 0)
+                    {
+                        Y = Y + stepY;
+                        E = E - 2 * Px;
+                    }
+
+                    X = X + stepX;
+                    E = E + 2 * Py;
+                }
+            }
+            else // |Py| > |Px|
+            {
+                E = 2 * Px - Py;
+                for (int i = 0; i <= Py; i++)
+                {
+                    PutPixel(X, Y,myPen,i); // Установка пикселя
+
+                    if (E >= 0)
+                    {
+                        X = X + stepX;
+                        E = E - 2 * Py;
+                    }
+
+                    Y = Y + stepY;
+                    E = E + 2 * Px;
+                }
+            }
+
+        }
+
+
+        private void PutPixel(int x, int y , Pen myPen,int counter = 0)
+        {
+            Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
+
+            switch (currentPenStile)
+            {
+                case "Тонкая":
+
+                    g.DrawRectangle(myPen, x, y, 1, 1);
+
+
+                    break;
+                case "Толстая":
+
+                    //Рисуем прямоугольник
+                    g.DrawRectangle(myPen, x, y, 5, 5);
+
+                    //Рисуем закрашенный прямоугольник:
+                    //Объявляем объект "redBrush", задающий цвет кисти
+                    SolidBrush redBrush = new SolidBrush(Color.Red);
+
+                    //Рисуем закрашенный прямоугольник
+                    g.FillRectangle(redBrush, x, y, 5, 5);
+
+
+
+                    break;
+                case "Сплошная":
+
+                    //Рисуем прямоугольник
+                    g.DrawRectangle(myPen, x, y, 2, 2);
+
+
+                    break;
+                case "Пунктирная":
+                    if (counter % 20 < 10)
+                    {
+                        g.DrawRectangle(myPen, x, y, 2, 2);
+                    }
+                    counter++;
+                    break;
+
+            }
         }
 
         private void CDA(int xStart, int yStart, int xEnd, int yEnd)
@@ -122,6 +227,8 @@ namespace CompGraph.View
                 yOutput = yOutput + dy / numberNodes;
             }
         }
+      
+
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -181,6 +288,13 @@ namespace CompGraph.View
                 button1.Enabled = true;
                 button2.Enabled = true;
             }
+        }
+        // Обработчик события для выбора стиля линии
+        private void comboBoxLineStyle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedStyle = comboBoxLineStyle.SelectedItem.ToString();
+
+            currentPenStile = selectedStyle;
         }
 
         //Заливка с затравкой
