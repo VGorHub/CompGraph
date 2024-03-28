@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 
 namespace CompGraph.View
@@ -27,30 +29,107 @@ namespace CompGraph.View
         }
          
 
-        private void ComplexContour(Stack<Tuple<int, int>> stackComplexContour)
+        private void ComplexContour()
         {
             int firstX = -1;
             int firstY = -1;
+            
             try
             {
-                for (int i = 0; i < pictureBox1.Width; i++)
+                for (int i = 0; i < myBitmap.Width; i++)
                 {
-                    for (int j = 0; j < pictureBox1.Height; j++)
+                    for (int j = 0; j < myBitmap.Height; j++)
                     {
+                        
                         Color currentPixelColor = myBitmap.GetPixel(i, j);
-                        if (currentPixelColor == currentPixelColor)
+                        
+                        if (currentPixelColor.ToArgb() == currentBorderColor.ToArgb())
                         {
                             firstX = i;
                             firstY = j;
                             break;
                         }
-                        else
-                        {
-                            throw new Exception("There isn't anything");
-                        }
-
+                        
                     }
                 }
+                if (firstX == -1 && firstY == -1)
+                {
+                    throw new Exception("There isn't anything");
+                }
+                else
+                {
+                    Color changeColor;
+                    Color currentPixelColor = myBitmap.GetPixel(firstX, firstY);
+                    if (currentPixelColor.ToArgb() == Color.Black.ToArgb() || currentPixelColor.ToArgb() == Color.White.ToArgb())
+                    {
+                        changeColor = Color.Red;
+                    }
+                    else
+                    {
+                        changeColor = Color.FromArgb(255 - currentPixelColor.R, 255 - currentPixelColor.G, 255 - currentPixelColor.B);
+                    }
+                    
+                    Tuple<int, int> currentPos = Tuple.Create(firstX, firstY);
+                    
+                    while (true)
+                    {
+                        
+                        int x2 = 0;
+                        int y2 = 0;
+                        int k = 0;
+                        for (int i = currentPos.Item1 - 1; i <= currentPos.Item1 + 1; i++)
+                        {
+                            for (int j = currentPos.Item2 - 1; j <= currentPos.Item2 + 1; j++)
+                            {
+                                if (i != currentPos.Item1 || j != currentPos.Item2)
+                                {
+                                    
+                                    Color current2PixelColor = myBitmap.GetPixel(i, j);
+                                    if (currentPixelColor.ToArgb() == current2PixelColor.ToArgb())
+                                    {
+                                        
+                                        k += 1;
+                                        x2 = i;
+                                        y2 = j;
+                                        
+                                        Tuple<int, int> current2Pos = Tuple.Create(i, j);
+
+                                    }
+                                }
+                            }
+                        }
+                        if (k == 0)
+                        {
+                            myBitmap.SetPixel(currentPos.Item1, currentPos.Item2, changeColor);
+                            if (stackComplexContour.Count == 0)
+                            {
+                                pictureBox1.Invalidate(); // Перерисовать PictureBox
+                                pictureBox1.Update(); // Обновить PictureBox
+                                break;
+                            }
+                            else
+                            {
+                                Tuple<int, int> topElement = stackComplexContour.Pop();
+                                currentPos = Tuple.Create(topElement.Item1, topElement.Item2);
+                            }
+                        }
+                        else if (k == 1)
+                        {
+                            currentPos = Tuple.Create(x2, y2);
+                            myBitmap.SetPixel(currentPos.Item1, currentPos.Item2, changeColor);
+                        }
+                        else
+                        {
+                            currentPos = Tuple.Create(x2, y2);
+                            stackComplexContour.Push(currentPos);
+                            myBitmap.SetPixel(currentPos.Item1, currentPos.Item2, changeColor);
+                        }
+                    }
+                        
+
+
+                }
+                
             }
             catch (Exception ex)
             {
@@ -78,6 +157,7 @@ namespace CompGraph.View
         }
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
+            
             if (radioButton1.Checked)
             {
                 //numberNodes – переменная, задающая количество узлов для
@@ -126,13 +206,15 @@ namespace CompGraph.View
                 yk = e.Y;
                 LineFill();
             }
+            
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Bitmap myBitmap = new Bitmap(pictureBox1.Height, pictureBox1.Width);
-            //Задаем цвет пикселя по схеме RGB (от 0 до 255 для каждого цвета)
+            label_Error.Text = "";
+            
+           
 
             Color newPixelColor = SystemColors.Control;
 
@@ -145,6 +227,7 @@ namespace CompGraph.View
             }
             pictureBox1.Image = myBitmap;
             // pictureBox1.Image = null;
+            
 
         }
         private void DrawBresenhamLine(int xn, int yn, int xk, int yk)
@@ -288,6 +371,7 @@ namespace CompGraph.View
             //отключаем кнопки
             button1.Enabled = false;
             button2.Enabled = false;
+            label_Error.Text = "";
 
             //создаем новый экземпляр Bitmap размером с элемент pictureBox1 (myBitmap)
             //на нем выводим попиксельно отрезок
@@ -321,6 +405,7 @@ namespace CompGraph.View
                         // вызываем рекурсивную процедуру заливки с затравкой
                         FloodFill(xn, yn);
                     }
+                    
                 }
                 //передаем полученный растр mybitmap в элемент pictureBox
                 pictureBox1.Image = myBitmap;
@@ -331,6 +416,14 @@ namespace CompGraph.View
                 button2.Enabled = true;
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+            label_Error.Text = "";
+            ComplexContour();
+        }
+
         // Обработчик события для выбора стиля линии
         private void comboBoxLineStyle_SelectedIndexChanged(object sender, EventArgs e)
         {
