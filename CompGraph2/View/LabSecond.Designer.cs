@@ -30,6 +30,7 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label_Error = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -42,7 +43,6 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.label_Error = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -86,8 +86,18 @@
             this.pictureBox1.Size = new System.Drawing.Size(283, 434);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            // 
+            // label_Error
+            // 
+            this.label_Error.AutoSize = true;
+            this.label_Error.Location = new System.Drawing.Point(8, 321);
+            this.label_Error.Name = "label_Error";
+            this.label_Error.Size = new System.Drawing.Size(0, 13);
+            this.label_Error.TabIndex = 2;
             // 
             // button3
             // 
@@ -139,6 +149,7 @@
             this.radioButton6.TabStop = true;
             this.radioButton6.Text = "Простой алг двумер сеч";
             this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
             // 
             // radioButton5
             // 
@@ -221,14 +232,6 @@
             this.button1.Text = "Очистить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label_Error
-            // 
-            this.label_Error.AutoSize = true;
-            this.label_Error.Location = new System.Drawing.Point(8, 321);
-            this.label_Error.Name = "label_Error";
-            this.label_Error.Size = new System.Drawing.Size(0, 13);
-            this.label_Error.TabIndex = 2;
             // 
             // LabSecond
             // 
