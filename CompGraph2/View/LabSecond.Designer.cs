@@ -30,12 +30,13 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+
+ main
             this.label_Error = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.comboBoxLineStyle = new System.Windows.Forms.ComboBox();
@@ -65,6 +66,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button4);
             this.splitContainer1.Panel2.Controls.Add(this.label_Error);
             this.splitContainer1.Panel2.Controls.Add(this.button3);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
@@ -91,17 +93,15 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // label_Error
-            // 
-            this.label_Error.AutoSize = true;
-            this.label_Error.Location = new System.Drawing.Point(8, 321);
+
+
             this.label_Error.Name = "label_Error";
             this.label_Error.Size = new System.Drawing.Size(0, 13);
             this.label_Error.TabIndex = 2;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(11, 356);
+            this.button3.Location = new System.Drawing.Point(11, 362);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(68, 22);
@@ -124,7 +124,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButton6);
-            this.groupBox1.Controls.Add(this.radioButton5);
             this.groupBox1.Controls.Add(this.radioButton4);
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.comboBoxLineStyle);
@@ -134,7 +133,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(176, 212);
+            this.groupBox1.Size = new System.Drawing.Size(176, 184);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Выберите алгоритм";
@@ -142,7 +141,7 @@
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(9, 129);
+            this.radioButton6.Location = new System.Drawing.Point(9, 106);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(148, 17);
             this.radioButton6.TabIndex = 10;
@@ -150,17 +149,6 @@
             this.radioButton6.Text = "Простой алг двумер сеч";
             this.radioButton6.UseVisualStyleBackColor = true;
             this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(9, 106);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(128, 17);
-            this.radioButton5.TabIndex = 9;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Обход слож контура";
-            this.radioButton5.UseVisualStyleBackColor = true;
             // 
             // radioButton4
             // 
@@ -192,7 +180,7 @@
             "Толстая",
             "Сплошная",
             "Пунктирная"});
-            this.comboBoxLineStyle.Location = new System.Drawing.Point(9, 155);
+            this.comboBoxLineStyle.Location = new System.Drawing.Point(9, 139);
             this.comboBoxLineStyle.Name = "comboBoxLineStyle";
             this.comboBoxLineStyle.Size = new System.Drawing.Size(121, 21);
             this.comboBoxLineStyle.TabIndex = 6;
@@ -268,7 +256,7 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.Label label_Error;
+        private System.Windows.Forms.Button button4;
     }
 }
