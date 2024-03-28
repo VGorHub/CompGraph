@@ -19,6 +19,7 @@ namespace CompGraph.View
         {
             InitializeComponent();
         }
+        
 
         private void LabFirstButton_Click(object sender, EventArgs e)
         {
