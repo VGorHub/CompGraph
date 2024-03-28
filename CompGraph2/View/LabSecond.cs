@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace CompGraph.View
 {
     public partial class LabSecond : UserControl
     {
-
+        Stack<Tuple<int, int>> stackComplexContour = new Stack<Tuple<int, int>>();
         private int xn, yn, xk, yk;
         Bitmap myBitmap ; // объект Bitmap для вывода отрезка
         Color currentBorderColor = Color.Black ; // текущий цвет отрезка и текущий цвет заливки
@@ -25,6 +26,38 @@ namespace CompGraph.View
             myBitmap = new Bitmap(pictureBox1.Width+200, pictureBox1.Height);
         }
 
+
+        private void ComplexContour(Stack<Tuple<int, int>> stackComplexContour)
+        {
+            int firstX = -1;
+            int firstY = -1;
+            try
+            {
+                for (int i = 0; i < pictureBox1.Width; i++)
+                {
+                    for (int j = 0; j < pictureBox1.Height; j++)
+                    {
+                        Color currentPixelColor = myBitmap.GetPixel(i, j);
+                        if (currentPixelColor == currentPixelColor)
+                        {
+                            firstX = i;
+                            firstY = j;
+                            break;
+                        }
+                        else
+                        {
+                            throw new Exception("There isn't anything");
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                label_Error.Text = ex.Message;
+                label_Error.Visible = true;
+            }
+        }
         //ДОБАВЬТЕ СВОИ РАДИОБАТТОНЫ В ВАЛИДАЦИЮ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
