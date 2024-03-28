@@ -25,7 +25,7 @@ namespace CompGraph.View
             comboBoxLineStyle.SelectedIndex =0;
             myBitmap = new Bitmap(pictureBox1.Width+200, pictureBox1.Height);
         }
-
+         
 
         private void ComplexContour(Stack<Tuple<int, int>> stackComplexContour)
         {
