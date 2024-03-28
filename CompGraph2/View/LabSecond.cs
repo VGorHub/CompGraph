@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +16,11 @@ namespace CompGraph.View
     {
         Stack<Tuple<int, int>> stackComplexContour = new Stack<Tuple<int, int>>();
         private int xn, yn, xk, yk;
+
+        private Point startPoint; // переменная для хранения начальной точки выделения
+        private Point endPoint; // переменная для хранения конечной точки выделения
+        private bool isSelectingRegion = false;
+
         Bitmap myBitmap ; // объект Bitmap для вывода отрезка
         Color currentBorderColor = Color.Black ; // текущий цвет отрезка и текущий цвет заливки
         string currentPenStile = "Тонкая";
@@ -141,12 +145,19 @@ namespace CompGraph.View
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             {
-                if (radioButton1.Checked == true || radioButton3.Checked == true || radioButton4.Checked == true)
+                if (radioButton1.Checked == true || radioButton3.Checked == true || radioButton4.Checked == true )
                 {
                     xn = e.X;
                     yn = e.Y;
                 }
+                //это для отсечения 
+                else if (radioButton6.Checked == true)
+                {
+                    startPoint = e.Location;
+                    isSelectingRegion = true;
+                }
                 else MessageBox.Show("Вы не выбрали алгоритм вывода фигуры!");
+
             }
         }
         private Point GetCoordinatesOnPictureBox(MouseEventArgs e)
@@ -206,7 +217,17 @@ namespace CompGraph.View
                 yk = e.Y;
                 LineFill();
             }
-            
+
+            else if (isSelectingRegion && radioButton6.Checked)
+            {
+                // Если пользователь отпустил кнопку мыши, завершаем выделение области
+                endPoint = e.Location;
+                isSelectingRegion = false;
+
+                // Вызываем метод для выполнения отсечения области
+                PerformClipping();
+            }
+
 
         }
 
@@ -417,12 +438,134 @@ namespace CompGraph.View
             }
         }
 
+
+        //Простой алгоритм двумерного отсечения (branch: Grisha_Work2)___________________________________________________________
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton6.Checked)
+            {
+                // Вызываем метод для выполнения простого алгоритма двумерного отсечения
+                PerformComplexContour(stackComplexContour);
+            }
+        }
+        private void PerformComplexContour(Stack<Tuple<int, int>> stackComplexContour)
+        {
+            try
+            {
+                // Переменные для хранения координат первого пикселя внутри области
+                int firstX = -1;
+                int firstY = -1;
+
+                // Перебираем пиксели в pictureBox1
+                for (int i = 0; i < pictureBox1.Width; i++)
+                {
+                    for (int j = 0; j < pictureBox1.Height; j++)
+                    {
+                        Color currentPixelColor = myBitmap.GetPixel(i, j);
+                        // Если цвет текущего пикселя не совпадает с фоновым цветом, значит, это пиксель внутри области
+                        if (currentPixelColor != SystemColors.Control)
+                        {
+                            // Запоминаем координаты первого пикселя внутри области
+                            firstX = i;
+                            firstY = j;
+                            break;
+                        }
+                    }
+                }
+
+                // Если первый пиксель внутри области найден
+                if (firstX == -1 && firstY == -1)
+                {
+                    // Выводим сообщение с координатами первого пикселя внутри области
+                    throw new Exception("Внутри области нет пикселей");
+                }
+            }
+            catch (Exception ex)
+            {
+                // В случае исключения выводим сообщение об ошибке
+                label_Error.Text = ex.Message;
+                label_Error.Visible = true;
+            }
+        }
+
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isSelectingRegion)
+            {
+                // Если пользователь продолжает удерживать кнопку мыши, обновляем конечную точку выделения
+                endPoint = e.Location;
+                pictureBox1.Invalidate(); // Обновляем pictureBox, чтобы нарисовать прямоугольник выделения
+            }
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            if (isSelectingRegion)
+            {
+                // Если пользователь выделяет область, рисуем прямоугольник выделения
+                int x = Math.Min(startPoint.X, endPoint.X);
+                int y = Math.Min(startPoint.Y, endPoint.Y);
+                int width = Math.Abs(startPoint.X - endPoint.X);
+                int height = Math.Abs(startPoint.Y - endPoint.Y);
+                e.Graphics.DrawRectangle(Pens.Red, x, y, width, height);
+            }
+        }
+
+        private void PerformClipping()
+        {
+            // Проверяем, что начальная и конечная точки выделения были установлены
+            if (startPoint != null && endPoint != null)
+            {
+                // Определяем границы области выделения
+                int x = Math.Min(startPoint.X, endPoint.X);
+                int y = Math.Min(startPoint.Y, endPoint.Y);
+                int width = Math.Abs(startPoint.X - endPoint.X);
+                int height = Math.Abs(startPoint.Y - endPoint.Y);
+
+                try
+                {
+                    // Перебираем пиксели в области выделения
+                    for (int i = 0; i < myBitmap.Width; i++)
+                    {
+                        for (int j = 0; j < myBitmap.Height; j++)
+                        {
+                            // Проверяем, что пиксель не находится внутри области выделения
+                            if (i < x || i >= x + width || j < y || j >= y + height)
+                            {
+                                // Выполняем отсечение для каждого пикселя за областью выделения
+                                // Например, изменяем цвет пикселя или выполняем другие необходимые операции
+
+                                // Здесь меняем цвет пикселя на зеленый
+                                myBitmap.SetPixel(i, j, SystemColors.Control);
+                            }
+                        }
+                    }
+
+                    // Обновляем pictureBox, чтобы отобразить изменения
+                    pictureBox1.Image = myBitmap;
+                }
+                catch (Exception ex)
+                {
+                    // В случае исключения выводим сообщение об ошибке
+                    label_Error.Text = ex.Message;
+                    label_Error.Visible = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Сначала выделите область для отсечения.");
+            }
+        }
+        //end grisha work---------------------------------------------------------------------------------------
+
         private void button4_Click(object sender, EventArgs e)
         {
             
             label_Error.Text = "";
             ComplexContour();
         }
+
 
         // Обработчик события для выбора стиля линии
         private void comboBoxLineStyle_SelectedIndexChanged(object sender, EventArgs e)

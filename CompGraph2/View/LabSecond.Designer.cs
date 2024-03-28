@@ -30,7 +30,8 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
+
+ main
             this.label_Error = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -87,23 +88,13 @@
             this.pictureBox1.Size = new System.Drawing.Size(283, 434);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(11, 323);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(154, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Выполнить обход";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // label_Error
-            // 
-            this.label_Error.AutoSize = true;
-            this.label_Error.Location = new System.Drawing.Point(8, 297);
+
+
             this.label_Error.Name = "label_Error";
             this.label_Error.Size = new System.Drawing.Size(0, 13);
             this.label_Error.TabIndex = 2;
@@ -157,6 +148,7 @@
             this.radioButton6.TabStop = true;
             this.radioButton6.Text = "Простой алг двумер сеч";
             this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
             // 
             // radioButton4
             // 
