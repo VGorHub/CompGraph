@@ -30,12 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.lab3Stepa1 = new CompGraph.View.Lab3Stepa();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -52,7 +50,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.lab3Stepa1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -60,13 +57,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Stepa";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // lab3Stepa1
-            // 
-            this.lab3Stepa1.Location = new System.Drawing.Point(3, 3);
-            this.lab3Stepa1.Name = "lab3Stepa1";
-            this.lab3Stepa1.Size = new System.Drawing.Size(819, 624);
-            this.lab3Stepa1.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -107,7 +97,6 @@
             this.Name = "LabThirdForm";
             this.Text = "LabThirdForm";
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -119,6 +108,5 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
-        private Lab3Stepa lab3Stepa1;
     }
 }
