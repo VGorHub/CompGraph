@@ -71,6 +71,12 @@
     <Compile Include="View\ChooseLaboratory.Designer.cs">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Lab3Stepa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Lab3Stepa.Designer.cs">
+      <DependentUpon>Lab3Stepa.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LabFirstForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </Compile>
     <EmbeddedResource Include="View\ChooseLaboratory.resx">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Lab3Stepa.resx">
+      <DependentUpon>Lab3Stepa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LabFirstForm.resx">
       <DependentUpon>LabFirstForm.cs</DependentUpon>
