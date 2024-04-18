@@ -31,9 +31,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.grisha_3Laba_Tab1 = new CompGraph.View.Grisha_3Laba_Tab();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.grisha_3Laba_Tab1 = new CompGraph.View.Grisha_3Laba_Tab();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +71,13 @@
             this.tabPage2.Text = "Grisha";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // grisha_3Laba_Tab1
+            // 
+            this.grisha_3Laba_Tab1.Location = new System.Drawing.Point(3, 3);
+            this.grisha_3Laba_Tab1.Name = "grisha_3Laba_Tab1";
+            this.grisha_3Laba_Tab1.Size = new System.Drawing.Size(807, 616);
+            this.grisha_3Laba_Tab1.TabIndex = 0;
+            // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -91,18 +98,11 @@
             this.tabPage4.Text = "Anton";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // grisha_3Laba_Tab1
-            // 
-            this.grisha_3Laba_Tab1.Location = new System.Drawing.Point(6, 6);
-            this.grisha_3Laba_Tab1.Name = "grisha_3Laba_Tab1";
-            this.grisha_3Laba_Tab1.Size = new System.Drawing.Size(807, 616);
-            this.grisha_3Laba_Tab1.TabIndex = 0;
-            // 
             // LabThirdForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 656);
+            this.ClientSize = new System.Drawing.Size(1178, 822);
             this.Controls.Add(this.tabControl1);
             this.Name = "LabThirdForm";
             this.Text = "LabThirdForm";
