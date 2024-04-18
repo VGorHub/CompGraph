@@ -18,7 +18,7 @@ namespace CompGraph.View
         double[,] ship2 = new double[4, 3]; // текущее тело 2
         double[,] matr_sdv = new double[3, 3]; // матрица преобразования
 
-        double k, l, a, b, c, d, a1, b1, c1, d1; // элементы матрицы преобразования
+        double k, l, a, b, c, d; // элементы матрицы преобразования
 
         int angle = 0;
 
@@ -29,7 +29,7 @@ namespace CompGraph.View
             InitializeComponent();
             myBitmap = new Bitmap(pictureBox1.Width + 200, pictureBox1.Height);
             Generate();
-            timer1.Start();
+            
         }
 
         //Инициализация формы корабля
@@ -52,8 +52,8 @@ namespace CompGraph.View
         //Обнуление матрицы преобразования
         private void Clear_matr_preob()
         {
-            k = l = b = c = b1 = c1 = 0;
-            a = d = a1 = d1 = 1;
+            k = l = b = c = 0;
+            a = d = 1;
 
         }
 
@@ -113,8 +113,8 @@ namespace CompGraph.View
             Graphics g = Graphics.FromImage(myBitmap);
 
             // Указываем центр и радиус планеты
-            int centerX = pictureBox1.Width / 2;
-            int centerY = pictureBox1.Height / 2;
+            int centerX = myBitmap.Width / 2;
+            int centerY = myBitmap.Height / 2;
             int radius = 50;
 
             // Рисуем планету
@@ -139,14 +139,17 @@ namespace CompGraph.View
             ship1 = ship;
             ship2 = ship;
 
-            k = pictureBox1.Width / 2 + 150;
-            l = pictureBox1.Height / 2;
+            k = myBitmap.Width / 2 + 150;
+            l = myBitmap.Height / 2 - 40;
 
             Draw_Ship(ref ship1);
 
-            k = pictureBox1.Width / 2 + 250;
+            k = myBitmap.Width / 2 + 200;
+            l = myBitmap.Height / 2 - 35;
 
             Draw_Ship(ref ship2);
+
+            timer1.Start();
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
@@ -158,8 +161,8 @@ namespace CompGraph.View
             Clear_matr_preob();
                         
             //Сдвиг к началу координат
-            k = pictureBox1.Width / -2;
-            l = pictureBox1.Height / -2;
+            k = myBitmap.Width / -2;
+            l = myBitmap.Height / -2 + 40;
 
             Draw_Ship(ref ship1);
             Draw_Ship(ref ship2);
@@ -168,10 +171,10 @@ namespace CompGraph.View
 
             //Преобразования 
             //Поворот
-            a = Math.Cos(5 * Math.PI / 180);
-            b = Math.Sin(5 * Math.PI / 180);
-            c = 0 - Math.Sin(5 * Math.PI / 180);
-            d = Math.Cos(5 * Math.PI / 180);
+            a = Math.Cos(-5 * Math.PI / 180);
+            b = Math.Sin(-5 * Math.PI / 180);
+            c = 0 - Math.Sin(-5 * Math.PI / 180);
+            d = Math.Cos(-5 * Math.PI / 180);
 
             angle += 5;
 
@@ -182,15 +185,15 @@ namespace CompGraph.View
 
             //Изменение размера
             if (angle >= 360) { angle -= 360; }
-            if ((angle >= 0 && angle < 90) || angle >= 270)
+            if ((angle >= 0 && angle < 80) || angle >= 280)
             {
-                a = 1 / 1.1;
-                d = 1 / 1.1;
+                a = 1 / 1.02;
+                d = 1 / 1.02;
             }
-            else if (angle >= 90 && angle < 270)
+            else if (angle >= 100 && angle < 260)
             {
-                a = 1.1;
-                d = 1.1;
+                a = 1.02;
+                d = 1.02;
             }
 
             Draw_Ship(ref ship1);
@@ -203,8 +206,8 @@ namespace CompGraph.View
 
             Draw_Planet();
 
-            k = pictureBox1.Width / 2;
-            l = pictureBox1.Height / 2;
+            k = myBitmap.Width / 2;
+            l = myBitmap.Height / 2 - 40;
 
             Draw_Ship(ref ship1);
             Draw_Ship(ref ship2);
