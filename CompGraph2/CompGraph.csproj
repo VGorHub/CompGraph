@@ -145,6 +145,12 @@
     <Compile Include="View\VectorsMulti.Designer.cs">
       <DependentUpon>VectorsMulti.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\VGor3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\VGor3.Designer.cs">
+      <DependentUpon>VGor3.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\ChooseLaboratory.resx">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +176,7 @@
     <EmbeddedResource Include="View\LabSecondForm.resx">
       <DependentUpon>LabSecondForm.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="View\LabThirdsForm.resx">
       <DependentUpon>LabThirdsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\VectorsMulti.resx">
       <DependentUpon>VectorsMulti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VGor3.resx">
+      <DependentUpon>VGor3.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
