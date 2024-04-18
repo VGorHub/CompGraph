@@ -30,7 +30,6 @@ namespace CompGraph.View
             Pen myPen = new Pen(Color.Red, 1);            
              //Объявляем объект "g" класса Graphics и предоставляем
              //ему возможность рисования на pictureBox1:
-            Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
             //реализация обычного алгоритма ЦДА
             xk = e.X;
             yk = e.Y;
@@ -42,7 +41,6 @@ namespace CompGraph.View
             for (index = 1; index <= numberNodes; index++)
             {
                 //Рисуем прямоугольник
-                g.DrawRectangle(myPen, (int)xOutput, (int)yOutput, 2, 2);
                 //Рисуем закрашенный прямоугольник:
                 //Объявляем объект "redBrush", задающий цвет кисти
                 // SolidBrush redBrush = new SolidBrush(Color.Red);
@@ -54,15 +52,5 @@ namespace CompGraph.View
 
         }        
 
-        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (radioButton1.Checked == true)
-            {
-                xn = e.X;
-                yn = e.Y;
-            }
-
-            else MessageBox.Show("Вы не выбрали алгоритм вывода фигуры!");
-        }
     }
 }
