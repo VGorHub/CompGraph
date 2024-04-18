@@ -151,6 +151,68 @@ namespace CompGraph.View
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
+            Graphics g = Graphics.FromImage(myBitmap);
+
+            g.Clear(SystemColors.Control);
+
+            Clear_matr_preob();
+                        
+            //Сдвиг к началу координат
+            k = pictureBox1.Width / -2;
+            l = pictureBox1.Height / -2;
+
+            Draw_Ship(ref ship1);
+            Draw_Ship(ref ship2);
+
+            Clear_matr_preob();
+
+            //Преобразования 
+            //Поворот
+            a = Math.Cos(5 * Math.PI / 180);
+            b = Math.Sin(5 * Math.PI / 180);
+            c = 0 - Math.Sin(5 * Math.PI / 180);
+            d = Math.Cos(5 * Math.PI / 180);
+
+            angle += 5;
+
+            Draw_Ship(ref ship1);
+            Draw_Ship(ref ship2);
+
+            Clear_matr_preob();
+
+            //Изменение размера
+            if (angle >= 360) { angle -= 360; }
+            if ((angle >= 0 && angle < 90) || angle >= 270)
+            {
+                a = 1 / 1.1;
+                d = 1 / 1.1;
+            }
+            else if (angle >= 90 && angle < 270)
+            {
+                a = 1.1;
+                d = 1.1;
+            }
+
+            Draw_Ship(ref ship1);
+            Draw_Ship(ref ship2);
+
+            Clear_matr_preob();
+
+            //Отрисовка нового кадра
+            g.Clear(SystemColors.Control);
+
+            Draw_Planet();
+
+            k = pictureBox1.Width / 2;
+            l = pictureBox1.Height / 2;
+
+            Draw_Ship(ref ship1);
+            Draw_Ship(ref ship2);
+
+            Clear_matr_preob();
+
+            g.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
+            pictureBox1.Image = myBitmap;
 
         }
     }
