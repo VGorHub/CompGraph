@@ -14,7 +14,7 @@ namespace CompGraph.View
     public partial class ChooseLaboratory : Form
     {
         LabFirstForm workWithMatrix = null;
-        LabSecondForm algorithmsOfRasterGraphics = null;
+        LabSecondForm grafics = null;
         public ChooseLaboratory()
         {
             InitializeComponent();
@@ -30,8 +30,8 @@ namespace CompGraph.View
         }
         private void LabSeconfButton_Click(object sender, EventArgs e)
         {
-            algorithmsOfRasterGraphics = new LabSecondForm();
-            if (algorithmsOfRasterGraphics.ShowDialog() == DialogResult.OK)
+            grafics = new LabSecondForm();
+            if (grafics.ShowDialog() == DialogResult.OK)
             {
 
             }

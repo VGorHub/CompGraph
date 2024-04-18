@@ -48,27 +48,30 @@
             this.panel1.Controls.Add(this.DimensionVectorTexBox);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.NLabel);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(708, 572);
+            this.panel1.Size = new System.Drawing.Size(568, 359);
             this.panel1.TabIndex = 20;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(329, 142);
+            this.label1.Location = new System.Drawing.Point(439, 175);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 31);
+            this.label1.Size = new System.Drawing.Size(109, 39);
             this.label1.TabIndex = 27;
             this.label1.Text = "label1";
             // 
             // SaveInFileButton
             // 
             this.SaveInFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SaveInFileButton.Location = new System.Drawing.Point(26, 197);
+            this.SaveInFileButton.Location = new System.Drawing.Point(35, 242);
+            this.SaveInFileButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SaveInFileButton.Name = "SaveInFileButton";
-            this.SaveInFileButton.Size = new System.Drawing.Size(298, 61);
+            this.SaveInFileButton.Size = new System.Drawing.Size(397, 75);
             this.SaveInFileButton.TabIndex = 25;
             this.SaveInFileButton.Text = "Сохранить в файле “Res_Module.txt";
             this.SaveInFileButton.UseVisualStyleBackColor = true;
@@ -76,9 +79,10 @@
             // ResultModuleButton
             // 
             this.ResultModuleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ResultModuleButton.Location = new System.Drawing.Point(26, 129);
+            this.ResultModuleButton.Location = new System.Drawing.Point(35, 159);
+            this.ResultModuleButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ResultModuleButton.Name = "ResultModuleButton";
-            this.ResultModuleButton.Size = new System.Drawing.Size(298, 61);
+            this.ResultModuleButton.Size = new System.Drawing.Size(397, 75);
             this.ResultModuleButton.TabIndex = 26;
             this.ResultModuleButton.Text = "Результат";
             this.ResultModuleButton.UseVisualStyleBackColor = true;
@@ -87,9 +91,10 @@
             // InputVectorButton
             // 
             this.InputVectorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.InputVectorButton.Location = new System.Drawing.Point(26, 70);
+            this.InputVectorButton.Location = new System.Drawing.Point(35, 86);
+            this.InputVectorButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.InputVectorButton.Name = "InputVectorButton";
-            this.InputVectorButton.Size = new System.Drawing.Size(206, 53);
+            this.InputVectorButton.Size = new System.Drawing.Size(275, 65);
             this.InputVectorButton.TabIndex = 23;
             this.InputVectorButton.Text = "Ввод Вектора";
             this.InputVectorButton.UseVisualStyleBackColor = true;
@@ -98,9 +103,10 @@
             // DimensionVectorTexBox
             // 
             this.DimensionVectorTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DimensionVectorTexBox.Location = new System.Drawing.Point(77, 14);
+            this.DimensionVectorTexBox.Location = new System.Drawing.Point(103, 17);
+            this.DimensionVectorTexBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DimensionVectorTexBox.Name = "DimensionVectorTexBox";
-            this.DimensionVectorTexBox.Size = new System.Drawing.Size(247, 38);
+            this.DimensionVectorTexBox.Size = new System.Drawing.Size(328, 45);
             this.DimensionVectorTexBox.TabIndex = 22;
             this.DimensionVectorTexBox.Leave += new System.EventHandler(this.DimensionVectorTexBox_Leave);
             // 
@@ -108,9 +114,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(238, 79);
+            this.label2.Location = new System.Drawing.Point(317, 97);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 31);
+            this.label2.Size = new System.Drawing.Size(109, 39);
             this.label2.TabIndex = 20;
             this.label2.Text = "label2";
             // 
@@ -118,20 +125,21 @@
             // 
             this.NLabel.AutoSize = true;
             this.NLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NLabel.Location = new System.Drawing.Point(20, 14);
+            this.NLabel.Location = new System.Drawing.Point(27, 17);
+            this.NLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NLabel.Name = "NLabel";
-            this.NLabel.Size = new System.Drawing.Size(64, 31);
+            this.NLabel.Size = new System.Drawing.Size(80, 39);
             this.NLabel.TabIndex = 19;
             this.NLabel.Text = "N = ";
             // 
             // VectorModule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VectorModule";
-            this.Size = new System.Drawing.Size(838, 604);
+            this.Size = new System.Drawing.Size(576, 367);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
