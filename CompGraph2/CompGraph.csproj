@@ -97,15 +97,11 @@
     <Compile Include="View\LabSecondForm.Designer.cs">
       <DependentUpon>LabSecondForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\3LabVGor.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="View\LabThirdForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\LabThirdForm.Designer.cs">
       <DependentUpon>LabThirdForm.cs</DependentUpon>
-
     </Compile>
     <Compile Include="View\MatrixMultiplyVector.cs">
       <SubType>UserControl</SubType>
