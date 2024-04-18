@@ -1,4 +1,5 @@
-﻿namespace CompGraph.View
+﻿
+namespace CompGraph.View
 {
     partial class LabSecondForm
     {

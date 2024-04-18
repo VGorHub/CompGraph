@@ -16,6 +16,7 @@ namespace CompGraph.View
     {
         LabFirstForm workWithMatrix = null;
         LabSecondForm grafics = null;
+        LabThirdForm pictures = null;
         public ChooseLaboratory()
         {
             InitializeComponent();
@@ -41,7 +42,11 @@ namespace CompGraph.View
 
         private void LabThirdButton_Click(object sender, EventArgs e)
         {
-            
+            pictures = new LabThirdForm();
+            if (pictures.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
         private void LabQuarterButton_Click(object sender, EventArgs e)
