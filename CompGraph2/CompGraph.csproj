@@ -97,6 +97,12 @@
     <Compile Include="View\LabSecondForm.Designer.cs">
       <DependentUpon>LabSecondForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\LabThirdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LabThirdForm.Designer.cs">
+      <DependentUpon>LabThirdForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MatrixMultiplyVector.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LabSecondForm.resx">
       <DependentUpon>LabSecondForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LabThirdForm.resx">
+      <DependentUpon>LabThirdForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MatrixMultiplyVector.resx">
       <DependentUpon>MatrixMultiplyVector.cs</DependentUpon>
