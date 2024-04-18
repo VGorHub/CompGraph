@@ -38,7 +38,6 @@ namespace CompGraph
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.matrixMultiplyVector2 = new CompGraph.View.MatrixMultiplyVector();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.matrixMultiConst1 = new CompGraph.View.MatrixMultiConst();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.vectorsMulti1 = new CompGraph.View.VectorsMulti();
             this.TabControl.SuspendLayout();
@@ -132,7 +131,6 @@ namespace CompGraph
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.matrixMultiConst1);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -140,13 +138,6 @@ namespace CompGraph
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "MatrixMultiConst";
             this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // matrixMultiConst1
-            // 
-            this.matrixMultiConst1.Location = new System.Drawing.Point(3, 3);
-            this.matrixMultiConst1.Name = "matrixMultiConst1";
-            this.matrixMultiConst1.Size = new System.Drawing.Size(479, 352);
-            this.matrixMultiConst1.TabIndex = 0;
             // 
             // tabPage7
             // 
@@ -198,7 +189,6 @@ namespace CompGraph
         private View.MatrixMultiplyVector matrixMultiplyVector1;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
-        private View.MatrixMultiConst matrixMultiConst1;
         private View.VectorsMulti vectorsMulti1;
         private View.ScalarProductOfVector scalarProductOfVector2;
         private View.MatrixMultiplyVector matrixMultiplyVector2;
