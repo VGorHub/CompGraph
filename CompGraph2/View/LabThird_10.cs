@@ -20,7 +20,8 @@ namespace CompGraph.View
 
         double k, l, a, b, c, d; // элементы матрицы преобразования
 
-        int angle = 0;
+        int angle1 = 0;
+        int angle2 = 0;
 
         Bitmap myBitmap;
 
@@ -145,7 +146,7 @@ namespace CompGraph.View
             Draw_Ship(ref ship1);
 
             k = myBitmap.Width / 2 + 200;
-            l = myBitmap.Height / 2 - 35;
+            l = myBitmap.Height / 2 - 40;
 
             Draw_Ship(ref ship2);
 
@@ -169,37 +170,71 @@ namespace CompGraph.View
 
             Clear_matr_preob();
 
-            //Преобразования 
+            ////////////////////////////////////////////////
+
+            //Преобразования первого корабля
             //Поворот
             a = Math.Cos(-5 * Math.PI / 180);
             b = Math.Sin(-5 * Math.PI / 180);
             c = 0 - Math.Sin(-5 * Math.PI / 180);
             d = Math.Cos(-5 * Math.PI / 180);
 
-            angle += 5;
+            angle1 += 5;
 
             Draw_Ship(ref ship1);
-            Draw_Ship(ref ship2);
 
             Clear_matr_preob();
 
             //Изменение размера
-            if (angle >= 360) { angle -= 360; }
-            if ((angle >= 0 && angle < 80) || angle >= 280)
+            if (angle1 >= 360) { angle1 -= 360; }
+            if ((angle1 >= 0 && angle1 < 80) || angle1 >= 280)
             {
                 a = 1 / 1.02;
                 d = 1 / 1.02;
             }
-            else if (angle >= 100 && angle < 260)
+            else if (angle1 >= 100 && angle1 < 260)
             {
                 a = 1.02;
                 d = 1.02;
             }
 
             Draw_Ship(ref ship1);
+
+            Clear_matr_preob();
+
+            /////////////////////////////////////////////
+
+            //Преобразования второго корабля
+            //Поворот
+            a = Math.Cos(-4 * Math.PI / 180);
+            b = Math.Sin(-4 * Math.PI / 180);
+            c = 0 - Math.Sin(-4 * Math.PI / 180);
+            d = Math.Cos(-4 * Math.PI / 180);
+
+            angle2 += 4;
+
             Draw_Ship(ref ship2);
 
             Clear_matr_preob();
+
+            //Изменение размера
+            if (angle2 >= 360) { angle2 -= 360; }
+            if ((angle2 >= 0 && angle2 < 80) || angle2 >= 280)
+            {
+                a = 1 / 1.02;
+                d = 1 / 1.02;
+            }
+            else if (angle2 >= 100 && angle2 < 260)
+            {
+                a = 1.02;
+                d = 1.02;
+            }
+
+            Draw_Ship(ref ship2);
+
+            Clear_matr_preob();
+
+            //////////////////////////////////////
 
             //Отрисовка нового кадра
             g.Clear(SystemColors.Control);
