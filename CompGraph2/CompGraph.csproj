@@ -77,6 +77,12 @@
     <Compile Include="View\Grisha_3Laba_Tab.Designer.cs">
       <DependentUpon>Grisha_3Laba_Tab.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Lab3Stepa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Lab3Stepa.Designer.cs">
+      <DependentUpon>Lab3Stepa.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LabFirstForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,11 +109,17 @@
     <Compile Include="View\LabSecondForm.Designer.cs">
       <DependentUpon>LabSecondForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\LabThirdForm.cs">
+    <Compile Include="View\LabThirdsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\LabThirdForm.Designer.cs">
-      <DependentUpon>LabThirdForm.cs</DependentUpon>
+    <Compile Include="View\LabThirdsForm.Designer.cs">
+      <DependentUpon>LabThirdsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LabThird_10.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\LabThird_10.Designer.cs">
+      <DependentUpon>LabThird_10.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MatrixMultiplyVector.cs">
       <SubType>UserControl</SubType>
@@ -145,11 +157,20 @@
     <Compile Include="View\VectorsMulti.Designer.cs">
       <DependentUpon>VectorsMulti.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\VGor3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\VGor3.Designer.cs">
+      <DependentUpon>VGor3.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\ChooseLaboratory.resx">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Grisha_3Laba_Tab.resx">
       <DependentUpon>Grisha_3Laba_Tab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Lab3Stepa.resx">
+      <DependentUpon>Lab3Stepa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LabFirstForm.resx">
       <DependentUpon>LabFirstForm.cs</DependentUpon>
@@ -173,8 +194,12 @@
     <EmbeddedResource Include="View\LabSecondForm.resx">
       <DependentUpon>LabSecondForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\LabThirdForm.resx">
-      <DependentUpon>LabThirdForm.cs</DependentUpon>
+
+    <EmbeddedResource Include="View\LabThirdsForm.resx">
+      <DependentUpon>LabThirdsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LabThird_10.resx">
+      <DependentUpon>LabThird_10.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MatrixMultiplyVector.resx">
       <DependentUpon>MatrixMultiplyVector.cs</DependentUpon>
@@ -193,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\VectorsMulti.resx">
       <DependentUpon>VectorsMulti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VGor3.resx">
+      <DependentUpon>VGor3.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
