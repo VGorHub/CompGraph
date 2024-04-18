@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CompGraph.View;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CompGraph.View
 {
@@ -15,7 +16,6 @@ namespace CompGraph.View
     {
         LabFirstForm workWithMatrix = null;
         LabSecondForm grafics = null;
-        LabThirdForm vectorImages = null;
         public ChooseLaboratory()
         {
             InitializeComponent();
@@ -41,11 +41,7 @@ namespace CompGraph.View
 
         private void LabThirdButton_Click(object sender, EventArgs e)
         {
-            vectorImages = new LabThirdForm();
-            if (vectorImages.ShowDialog() == DialogResult.OK)
-            {
-
-            }
+            
         }
 
         private void LabQuarterButton_Click(object sender, EventArgs e)
