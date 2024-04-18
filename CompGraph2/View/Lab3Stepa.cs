@@ -683,7 +683,7 @@ namespace CompGraph.View
                         xscale1 -= xscaleDelta;
                         yscale1 -= yscaleDelta;
                     }
-
+                     
                     ClearBit();
 
                     Draw_Sea();
