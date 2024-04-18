@@ -31,11 +31,13 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.grisha_3Laba_Tab1 = new CompGraph.View.Grisha_3Laba_Tab();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.labThird_10 = new CompGraph.View.LabThird_10();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -66,12 +68,21 @@
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Controls.Add(this.grisha_3Laba_Tab1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1107, 778);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Grisha";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // grisha_3Laba_Tab1
+            // 
+            this.grisha_3Laba_Tab1.Location = new System.Drawing.Point(3, 3);
+            this.grisha_3Laba_Tab1.Name = "grisha_3Laba_Tab1";
+            this.grisha_3Laba_Tab1.Size = new System.Drawing.Size(807, 616);
+            this.grisha_3Laba_Tab1.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -115,6 +126,7 @@
             this.Text = "LabThirdForm";
             this.tabControl1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -127,5 +139,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private LabThird_10 labThird_10;
+        private Grisha_3Laba_Tab grisha_3Laba_Tab1;
     }
 }
