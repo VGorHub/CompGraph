@@ -47,8 +47,8 @@ namespace CompGraph.View
 
         double xdisplay = 1;
         double ydisplay = 1;
-        
 
+        int count =1;
         // Метод для инициализации таймера
         private void InitializeTimer()
         {
@@ -128,8 +128,7 @@ namespace CompGraph.View
             Bitmap = new Bitmap(PBWidth, PBHeight);
             k = PBWidth / 2; // Используем половину ширины PictureBox
             l = PBHeight / 2; // Используем половину высоты PictureBox
-            Draw_Bicycle();
-            InitializeTimer();
+            
         }
 
         private void Init_bicycle()
@@ -175,6 +174,18 @@ namespace CompGraph.View
             Draw_Bicycle();
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+            count = int.Parse(textBox1.Text.ToString());
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Draw_Bicycle();
+            InitializeTimer();
+        }
+
         private void Init_pedals()
         {
             pedals[0, 0] = 0; pedals[0, 1] = 6; pedals[0, 2] = 1; // педалей
@@ -184,10 +195,11 @@ namespace CompGraph.View
 
         private void Draw_Bicycle()
         {
+            
             Init_bicycle();
             Init_spokes();
             Init_spokes_zad();
-            Init_pedals();
+            
 
             Init_matr_preob(ref matr_sdv, k, l);
             Init_matr_preob(ref matr_sdv2, k, l);
@@ -197,24 +209,18 @@ namespace CompGraph.View
             int[,] bicycle1 = Multiply_matr(bicycle, matr_sdv); 
             int[,] spokes2 = Multiply_matr(spokes, matr_sdv);
             int[,] spokesZad2 = Multiply_matr(spokesZad, matr_sdv);
-            int[,] pedals2 = Multiply_matr(pedals, matr_sdv);
+            
 
             Init_matr_preob_rotate(ref matr_sdv2, 60+k, 0+l, fi);
             Init_matr_preob_rotate(ref matr_sdv3, -90+k, 0 + l, fi);
-            Init_matr_preob_rotate(ref matr_sdv4, 0 + k, 6 + l, fi);
+            
             
 
             int[,] spokes1 = Multiply_matr(spokes2, matr_sdv2);
             int[,] spokesZad1 = Multiply_matr(spokesZad2, matr_sdv3);
-            int[,] pedals1 = Multiply_matr(pedals2, matr_sdv4);
+            
 
-            Init_matr_preob_rotate(ref matr_sdv5, pedals1[1, 0], pedals1[1, 1], -fi);
-
-            int[,] tempPedals1 = pedals1;
-            int[,] tempPedals2 = Multiply_matr(tempPedals1, matr_sdv5);
-
-            pedals1[2, 0] = tempPedals2[2,0];
-            pedals1[2, 1] = tempPedals2[2,1];
+            
             //int[,] bicycle1 = Multiply_matr(bicycle2, matr_sdv);
 
 
@@ -247,45 +253,67 @@ namespace CompGraph.View
                     spokes1[i, j] = spokes1[i, j] % (PBWidth);
                 }
             }
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    pedals1[i, j] = pedals1[i, j] % (PBWidth);
-                }
-            }
+            
 
             // Отрисовка заднего колеса с учетом измененного размера
-            g.DrawEllipse(myPen, bicycle1[10, 0], bicycle1[10, 1], wheelSize, wheelSize);
+            g.DrawEllipse(myPen, bicycle1[10, 0] + ((count - 1) * (-30)), bicycle1[10, 1], wheelSize, wheelSize);
 
             // Отрисовка переднего колеса с учетом измененного размера
             g.DrawEllipse(myPen, bicycle1[1, 0], bicycle1[1, 1], wheelSize, wheelSize);
 
-            g.DrawLine(myPen, bicycle1[0, 0], bicycle1[0, 1], bicycle1[2, 0], bicycle1[2, 1]);//зад колесо сиденье 
+            g.DrawLine(myPen, bicycle1[0, 0] + ((count - 1) * (-30)), bicycle1[0, 1], bicycle1[2, 0] + ((count - 1) * (-30)), bicycle1[2, 1]);//зад колесо сиденье 
             g.DrawLine(myPen, bicycle1[2, 0], bicycle1[2, 1], bicycle1[3, 0], bicycle1[3, 1]);//сид руль
             g.DrawLine(myPen, bicycle1[3, 0], bicycle1[3, 1], bicycle1[9, 0], bicycle1[9, 1]);//руль пед
             
-            g.DrawLine(myPen, bicycle1[9, 0], bicycle1[9, 1], bicycle1[0, 0], bicycle1[0, 1]);//пед зад
-            g.DrawLine(myPen, bicycle1[9, 0], bicycle1[9, 1], bicycle1[4, 0], bicycle1[4, 1]);//пед сид
-            g.DrawLine(myPen, bicycle1[4, 0], bicycle1[4, 1], bicycle1[5, 0], bicycle1[5, 1]);//
-            g.DrawLine(myPen, bicycle1[4, 0], bicycle1[4, 1], bicycle1[6, 0], bicycle1[6, 1]);//
+            g.DrawLine(myPen, bicycle1[9, 0] + ((count - 1) * (-30)), bicycle1[9, 1], bicycle1[0, 0] + ((count - 1) * (-30)), bicycle1[0, 1]);//пед зад
+            for(int i = 0; i < count; i++)
+            {
+                g.DrawLine(myPen, bicycle1[9, 0] + ((i) * (-30)), bicycle1[9, 1], bicycle1[4, 0] + ((i) * (-30)), bicycle1[4, 1]);//пед сид
+                g.DrawLine(myPen, bicycle1[4, 0] + ((i) * (-30)), bicycle1[4, 1], bicycle1[5, 0] + ((i) * (-30)), bicycle1[5, 1]);//
+                g.DrawLine(myPen, bicycle1[4, 0] + ((i) * (-30)), bicycle1[4, 1], bicycle1[6, 0] + ((i) * (-30)), bicycle1[6, 1]);//
+            }
+
+            g.DrawLine(myPen, bicycle1[9, 0], bicycle1[9, 1], bicycle1[9, 0] + ((count - 1) * (-30)), bicycle1[9, 1]);//
+            g.DrawLine(myPen, bicycle1[2, 0], bicycle1[2, 1], bicycle1[2, 0] + ((count - 1) * (-30)), bicycle1[2, 1]);//
+
             g.DrawLine(myPen, bicycle1[11, 0], bicycle1[11, 1], bicycle1[7, 0], bicycle1[7, 1]);// перед колесо руль
             g.DrawLine(myPen, bicycle1[7, 0], bicycle1[7, 1], bicycle1[8, 0], bicycle1[8, 1]);//руль
 
 
-            g.DrawLine(myPen, spokesZad1[0, 0], spokesZad1[0, 1], spokesZad1[1, 0], spokesZad1[1, 1]);
-            g.DrawLine(myPen, spokesZad1[0, 0], spokesZad1[0, 1], spokesZad1[2, 0], spokesZad1[2, 1]);
-            g.DrawLine(myPen, spokesZad1[0, 0], spokesZad1[0, 1], spokesZad1[3, 0], spokesZad1[3, 1]);
-            g.DrawLine(myPen, spokesZad1[0, 0], spokesZad1[0, 1], spokesZad1[4, 0], spokesZad1[4, 1]);
+            g.DrawLine(myPen, spokesZad1[0, 0] + ((count - 1) * (-30)), spokesZad1[0, 1], spokesZad1[1, 0] + ((count - 1) * (-30)), spokesZad1[1, 1]);
+            g.DrawLine(myPen, spokesZad1[0, 0] + ((count - 1) * (-30)), spokesZad1[0, 1], spokesZad1[2, 0] + ((count - 1) * (-30)), spokesZad1[2, 1]);
+            g.DrawLine(myPen, spokesZad1[0, 0] + ((count - 1) * (-30)), spokesZad1[0, 1], spokesZad1[3, 0] + ((count - 1) * (-30)), spokesZad1[3, 1]);
+            g.DrawLine(myPen, spokesZad1[0, 0] + ((count - 1) * (-30)), spokesZad1[0, 1], spokesZad1[4, 0] + ((count - 1) * (-30)), spokesZad1[4, 1]);
 
             g.DrawLine(myPen, spokes1[5, 0], spokes1[5, 1], spokes1[6, 0], spokes1[6, 1]);
             g.DrawLine(myPen, spokes1[5, 0], spokes1[5, 1], spokes1[7, 0], spokes1[7, 1]);
             g.DrawLine(myPen, spokes1[5, 0], spokes1[5, 1], spokes1[8, 0], spokes1[8, 1]);
             g.DrawLine(myPen, spokes1[5, 0], spokes1[5, 1], spokes1[9, 0], spokes1[9, 1]);
 
-            g.DrawLine(myPen, pedals1[0, 0], pedals1[0, 1], pedals1[1, 0], pedals1[1, 1]);
-            g.DrawLine(myPen, pedals1[1, 0], pedals1[1, 1], pedals1[2, 0], pedals1[2, 1]);
 
+            for (int i = 0; i < count; i++)
+            {
+                Init_pedals();
+                int[,] pedals2 = Multiply_matr(pedals, matr_sdv);
+                Init_matr_preob_rotate(ref matr_sdv4, 0 + k, 6 + l , fi);
+                int[,] pedals1 = Multiply_matr(pedals2, matr_sdv4);
+                Init_matr_preob_rotate(ref matr_sdv5, pedals1[1, 0], pedals1[1, 1] , -fi);
+
+                int[,] tempPedals1 = pedals1;
+                int[,] tempPedals2 = Multiply_matr(tempPedals1, matr_sdv5);
+
+                pedals1[2, 0] = tempPedals2[2, 0];
+                pedals1[2, 1] = tempPedals2[2, 1];
+                for (int j = 0; j < 3; j++)
+                {
+                    for (int h = 0; h < 3; h++)
+                    {
+                        pedals1[j, h] = pedals1[j, h] % (PBWidth);
+                    }
+                }
+                g.DrawLine(myPen, pedals1[0, 0] +i*(-30), pedals1[0, 1], pedals1[1, 0] + i * (-30), pedals1[1, 1]);
+                g.DrawLine(myPen, pedals1[1, 0] + i * (-30), pedals1[1, 1], pedals1[2, 0] + i * (-30), pedals1[2, 1]);
+            }
 
             g.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
             myPen.Dispose(); //освобождвем ресурсы, связанные с Pen
