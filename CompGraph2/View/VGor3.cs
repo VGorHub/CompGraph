@@ -79,7 +79,7 @@ namespace CompGraph.View
             InitializeComponent();
 
         }
-
+         
         //инициализация матрицы сдвига
         private void Init_matr_preob(ref double[,] matr_sdv, int k1, int l1)
         {
