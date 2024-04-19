@@ -231,28 +231,7 @@ namespace CompGraph.View
 
             // Отрисовка компонентов велосипеда
             int wheelSize = (int)(60 * xscale * xdisplay);
-
-            for (int i = 0; i < 12; i++)
-            {
-                for(int j = 0; j < 3; j++) 
-                {
-                    bicycle1[i,j] = bicycle1[i, j] % (PBWidth);
-                }
-            }
-            for (int i = 0; i < 5; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    spokesZad1[i, j] = spokesZad1[i, j] % (PBWidth);
-                }
-            }
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    spokes1[i, j] = spokes1[i, j] % (PBWidth);
-                }
-            }
+            
             
 
             // Отрисовка заднего колеса с учетом измененного размера
@@ -290,6 +269,11 @@ namespace CompGraph.View
             g.DrawLine(myPen, spokes1[5, 0], spokes1[5, 1], spokes1[8, 0], spokes1[8, 1]);
             g.DrawLine(myPen, spokes1[5, 0], spokes1[5, 1], spokes1[9, 0], spokes1[9, 1]);
 
+            if(spokesZad1[0, 0] + 40 > pictureBox1.Width)
+            {
+                ClearPictureBox();
+                k = 0 - 100;                
+            }
 
             for (int i = 0; i < count; i++)
             {
@@ -304,13 +288,7 @@ namespace CompGraph.View
 
                 pedals1[2, 0] = tempPedals2[2, 0];
                 pedals1[2, 1] = tempPedals2[2, 1];
-                for (int j = 0; j < 3; j++)
-                {
-                    for (int h = 0; h < 3; h++)
-                    {
-                        pedals1[j, h] = pedals1[j, h] % (PBWidth);
-                    }
-                }
+                
                 g.DrawLine(myPen, pedals1[0, 0] +i*(-30), pedals1[0, 1], pedals1[1, 0] + i * (-30), pedals1[1, 1]);
                 g.DrawLine(myPen, pedals1[1, 0] + i * (-30), pedals1[1, 1], pedals1[2, 0] + i * (-30), pedals1[2, 1]);
             }
