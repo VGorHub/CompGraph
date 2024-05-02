@@ -44,6 +44,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.ScaleComboBox = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ViewButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -106,7 +109,7 @@
             // LeftButton
             // 
             this.LeftButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LeftButton.Location = new System.Drawing.Point(19, 128);
+            this.LeftButton.Location = new System.Drawing.Point(19, 228);
             this.LeftButton.Name = "LeftButton";
             this.LeftButton.Size = new System.Drawing.Size(59, 60);
             this.LeftButton.TabIndex = 5;
@@ -117,7 +120,7 @@
             // RightButton
             // 
             this.RightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RightButton.Location = new System.Drawing.Point(84, 128);
+            this.RightButton.Location = new System.Drawing.Point(84, 228);
             this.RightButton.Name = "RightButton";
             this.RightButton.Size = new System.Drawing.Size(59, 60);
             this.RightButton.TabIndex = 6;
@@ -128,7 +131,7 @@
             // MinusButton
             // 
             this.MinusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MinusButton.Location = new System.Drawing.Point(84, 194);
+            this.MinusButton.Location = new System.Drawing.Point(84, 294);
             this.MinusButton.Name = "MinusButton";
             this.MinusButton.Size = new System.Drawing.Size(59, 60);
             this.MinusButton.TabIndex = 7;
@@ -139,7 +142,7 @@
             // PlusButton
             // 
             this.PlusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PlusButton.Location = new System.Drawing.Point(19, 194);
+            this.PlusButton.Location = new System.Drawing.Point(19, 294);
             this.PlusButton.Name = "PlusButton";
             this.PlusButton.Size = new System.Drawing.Size(59, 60);
             this.PlusButton.TabIndex = 8;
@@ -222,6 +225,9 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.ViewButton);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.CheckedListBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.ComboBox1);
             this.panel1.Controls.Add(this.RotateButton1);
@@ -235,6 +241,40 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(164, 450);
             this.panel1.TabIndex = 15;
+            // 
+            // ViewButton
+            // 
+            this.ViewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ViewButton.Location = new System.Drawing.Point(19, 360);
+            this.ViewButton.Name = "ViewButton";
+            this.ViewButton.Size = new System.Drawing.Size(124, 60);
+            this.ViewButton.TabIndex = 11;
+            this.ViewButton.Text = "View";
+            this.ViewButton.UseVisualStyleBackColor = true;
+            this.ViewButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ViewButton_MouseDown);
+            this.ViewButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewButton_MouseUp);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(15, 136);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(132, 20);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Выберите оси:";
+            // 
+            // CheckedListBox
+            // 
+            this.CheckedListBox.FormattingEnabled = true;
+            this.CheckedListBox.Items.AddRange(new object[] {
+            "Ox",
+            "Oy",
+            "Oz"});
+            this.CheckedListBox.Location = new System.Drawing.Point(19, 159);
+            this.CheckedListBox.Name = "CheckedListBox";
+            this.CheckedListBox.Size = new System.Drawing.Size(128, 72);
+            this.CheckedListBox.TabIndex = 9;
             // 
             // panel2
             // 
@@ -290,5 +330,8 @@
         private System.Windows.Forms.ComboBox ScaleComboBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button ViewButton;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckedListBox CheckedListBox;
     }
 }

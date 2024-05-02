@@ -37,10 +37,10 @@ namespace CompGraph.View
         //Инициализация формы фигуры
         private void Init_Tetrahedron()
         {
-            tetrahedron[0, 0] = 0; tetrahedron[0, 1] = -75; tetrahedron[0, 2] = 0; tetrahedron[0, 3] = 1;
-            tetrahedron[1, 0] = -75; tetrahedron[1, 1] = 75; tetrahedron[1, 2] = 50; tetrahedron[1, 3] = 1;
-            tetrahedron[2, 0] = 75; tetrahedron[2, 1] = 75; tetrahedron[2, 2] = 50; tetrahedron[2, 3] = 1;
-            tetrahedron[3, 0] = 0; tetrahedron[3, 1] = 75; tetrahedron[3, 2] = -100; tetrahedron[3, 3] = 1;
+            tetrahedron[0, 0] = 0; tetrahedron[0, 1] = -37.5; tetrahedron[0, 2] = 0; tetrahedron[0, 3] = 1;
+            tetrahedron[1, 0] = -37.5; tetrahedron[1, 1] = 37.5; tetrahedron[1, 2] = 25; tetrahedron[1, 3] = 1;
+            tetrahedron[2, 0] = 37.5; tetrahedron[2, 1] = 37.5; tetrahedron[2, 2] = 25; tetrahedron[2, 3] = 1;
+            tetrahedron[3, 0] = 0; tetrahedron[3, 1] = 37.5; tetrahedron[3, 2] = -50; tetrahedron[3, 3] = 1;
         }
 
         //инициализация матрицы сдвига
@@ -165,22 +165,22 @@ namespace CompGraph.View
             switch (ComboBox1.SelectedIndex)
             {
                 case 0:
-                    e = Math.Cos(-angle * Math.PI / 180);
-                    f = Math.Sin(-angle * Math.PI / 180);
-                    i = 0 - Math.Sin(-angle * Math.PI / 180);
-                    j = Math.Cos(-angle * Math.PI / 180);
+                    e = Math.Cos(angle * Math.PI / 180);
+                    f = Math.Sin(angle * Math.PI / 180);
+                    i = 0 - Math.Sin(angle * Math.PI / 180);
+                    j = Math.Cos(angle * Math.PI / 180);
                     break;
                 case 1:
-                    a = Math.Cos(-angle * Math.PI / 180);
-                    c = 0 - Math.Sin(-angle * Math.PI / 180);
-                    h = Math.Sin(-angle * Math.PI / 180);
-                    j = Math.Cos(-angle * Math.PI / 180);
+                    a = Math.Cos(angle * Math.PI / 180);
+                    c = 0 - Math.Sin(angle * Math.PI / 180);
+                    h = Math.Sin(angle * Math.PI / 180);
+                    j = Math.Cos(angle * Math.PI / 180);
                     break;
                 case 2:
-                    a = Math.Cos(-angle * Math.PI / 180);
-                    b = Math.Sin(-angle * Math.PI / 180);
-                    d = 0 - Math.Sin(-angle * Math.PI / 180);
-                    e = Math.Cos(-angle * Math.PI / 180);
+                    a = Math.Cos(angle * Math.PI / 180);
+                    b = Math.Sin(angle * Math.PI / 180);
+                    d = 0 - Math.Sin(angle * Math.PI / 180);
+                    e = Math.Cos(angle * Math.PI / 180);
                     break;
                 default:
                     break;
@@ -214,7 +214,7 @@ namespace CompGraph.View
         //Вращение 2
         private void RotateButton1_Click(object sender, EventArgs ev)
         {
-            double angle = double.Parse(RotateSpeedComboBox.SelectedItem.ToString());
+            double angle = 0 - double.Parse(RotateSpeedComboBox.SelectedItem.ToString());
 
             Graphics g = Graphics.FromImage(myBitmap);
 
@@ -290,20 +290,12 @@ namespace CompGraph.View
 
             Clear_matr_preob();
 
-            switch (ComboBox1.SelectedIndex)
-            {
-                case 0:
-                    l = -distance;
-                    break;
-                case 1:
-                    m = -distance;
-                    break;
-                case 2:
-                    n = -distance;
-                    break;
-                default:
-                    break;
-            }
+            if (CheckedListBox.CheckedItems.Contains("Ox"))
+                l = -distance;
+            if (CheckedListBox.CheckedItems.Contains("Oy"))
+                m = -distance;
+            if (CheckedListBox.CheckedItems.Contains("Oz"))
+                n = -distance;
 
             Draw_Osi();
 
@@ -327,20 +319,12 @@ namespace CompGraph.View
 
             Clear_matr_preob();
 
-            switch (ComboBox1.SelectedIndex)
-            {
-                case 0:
-                    l = distance;
-                    break;
-                case 1:
-                    m = distance;
-                    break;
-                case 2:
-                    n = distance;
-                    break;
-                default:
-                    break;
-            }
+            if (CheckedListBox.CheckedItems.Contains("Ox"))
+                l = distance;
+            if (CheckedListBox.CheckedItems.Contains("Oy"))
+                m = distance;
+            if (CheckedListBox.CheckedItems.Contains("Oz"))
+                n = distance;
 
             Draw_Osi();
 
@@ -372,20 +356,12 @@ namespace CompGraph.View
 
             Clear_matr_preob();
 
-            switch (ComboBox1.SelectedIndex)
-            {
-                case 0:
-                    a = scale;
-                    break;
-                case 1:
-                    e = scale;
-                    break;
-                case 2:
-                    j = scale;
-                    break;
-                default:
-                    break;
-            }
+            if (CheckedListBox.CheckedItems.Contains("Ox"))
+                a = scale;
+            if (CheckedListBox.CheckedItems.Contains("Oy"))
+                e = scale;
+            if (CheckedListBox.CheckedItems.Contains("Oz"))
+                j = scale;
 
             Draw_Tetrahedron(ref tetrahedron);
 
@@ -428,20 +404,12 @@ namespace CompGraph.View
 
             Clear_matr_preob();
 
-            switch (ComboBox1.SelectedIndex)
-            {
-                case 0:
-                    a = 1/scale;
-                    break;
-                case 1:
-                    e = 1/scale;
-                    break;
-                case 2:
-                    j = 1 / scale;
-                    break;
-                default:
-                    break;
-            }
+            if (CheckedListBox.CheckedItems.Contains("Ox"))
+                a = 1/scale;
+            if (CheckedListBox.CheckedItems.Contains("Oy"))
+                e = 1/scale;
+            if (CheckedListBox.CheckedItems.Contains("Oz"))
+                j = 1 / scale;
 
             Draw_Tetrahedron(ref tetrahedron);
 
@@ -462,6 +430,44 @@ namespace CompGraph.View
 
             g.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
             pictureBox1.Image = myBitmap;
+        }
+
+        private void ViewButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            Graphics g = Graphics.FromImage(myBitmap);
+
+            Pen myPen = new Pen(Color.Blue, 2);// цвет линии и ширина
+
+            g.Clear(SystemColors.Control);
+
+            for (int i = 0; i < 4; i++)
+                for (int j = 0; j < 4; j++)
+                {
+                    g.DrawLine(myPen, (int)(tetrahedron[i, 0] + 100), (int)(tetrahedron[i, 1] - 100), (int)(tetrahedron[j, 0] + 100), (int)(tetrahedron[j, 1] - 100));
+                    g.DrawLine(myPen, (int)(tetrahedron[i, 1] + 0), (int)(tetrahedron[i, 2] + 250), (int)(tetrahedron[j, 1] + 0), (int)(tetrahedron[j, 2] + 250));
+                    g.DrawLine(myPen, (int)(tetrahedron[i, 0] + 100), (int)(tetrahedron[i, 2] + 250), (int)(tetrahedron[j, 0] + 100), (int)(tetrahedron[j, 2] + 250));
+                }
+
+            g.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
+            myPen.Dispose();
+            pictureBox1.Image = myBitmap;
+        }
+
+        private void ViewButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            Graphics g = Graphics.FromImage(myBitmap);
+
+            g.Clear(SystemColors.Control);
+
+            Clear_matr_preob();
+
+            Draw_Osi();
+
+            Draw_Tetrahedron(ref tetrahedron);
+
+            g.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
+            pictureBox1.Image = myBitmap;
+
         }
 
 
