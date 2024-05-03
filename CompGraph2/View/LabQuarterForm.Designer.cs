@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.RotateButton2 = new System.Windows.Forms.Button();
             this.RotateButton1 = new System.Windows.Forms.Button();
@@ -48,6 +49,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.CheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.RotateTimer = new System.Windows.Forms.Timer(this.components);
+            this.MoveTimer = new System.Windows.Forms.Timer(this.components);
+            this.SizeTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -72,6 +76,8 @@
             this.RotateButton2.Text = "↺";
             this.RotateButton2.UseVisualStyleBackColor = true;
             this.RotateButton2.Click += new System.EventHandler(this.Rotate_Click);
+            this.RotateButton2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RotateButton2_MouseDown);
+            this.RotateButton2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RotateButton2_MouseUp);
             // 
             // RotateButton1
             // 
@@ -83,6 +89,8 @@
             this.RotateButton1.Text = "↻";
             this.RotateButton1.UseVisualStyleBackColor = true;
             this.RotateButton1.Click += new System.EventHandler(this.RotateButton1_Click);
+            this.RotateButton1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RotateButton1_MouseDown);
+            this.RotateButton1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RotateButton1_MouseUp);
             // 
             // ComboBox1
             // 
@@ -116,6 +124,8 @@
             this.LeftButton.Text = "←";
             this.LeftButton.UseVisualStyleBackColor = true;
             this.LeftButton.Click += new System.EventHandler(this.LeftButton_Click);
+            this.LeftButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LeftButton_MouseDown);
+            this.LeftButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LeftButton_MouseUp);
             // 
             // RightButton
             // 
@@ -127,6 +137,8 @@
             this.RightButton.Text = "→";
             this.RightButton.UseVisualStyleBackColor = true;
             this.RightButton.Click += new System.EventHandler(this.RightButton_Click);
+            this.RightButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RightButton_MouseDown);
+            this.RightButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RightButton_MouseUp);
             // 
             // MinusButton
             // 
@@ -138,6 +150,8 @@
             this.MinusButton.Text = "-";
             this.MinusButton.UseVisualStyleBackColor = true;
             this.MinusButton.Click += new System.EventHandler(this.MinusButton_Click);
+            this.MinusButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MinusButton_MouseDown);
+            this.MinusButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MinusButton_MouseUp);
             // 
             // PlusButton
             // 
@@ -149,6 +163,8 @@
             this.PlusButton.Text = "+";
             this.PlusButton.UseVisualStyleBackColor = true;
             this.PlusButton.Click += new System.EventHandler(this.PlusButton_Click);
+            this.PlusButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlusButton_MouseDown);
+            this.PlusButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlusButton_MouseUp);
             // 
             // label2
             // 
@@ -292,6 +308,18 @@
             this.panel2.Size = new System.Drawing.Size(195, 450);
             this.panel2.TabIndex = 16;
             // 
+            // RotateTimer
+            // 
+            this.RotateTimer.Tick += new System.EventHandler(this.RotateTimer_Tick);
+            // 
+            // MoveTimer
+            // 
+            this.MoveTimer.Tick += new System.EventHandler(this.MoveTimer_Tick);
+            // 
+            // SizeTimer
+            // 
+            this.SizeTimer.Tick += new System.EventHandler(this.SizeTimer_Tick);
+            // 
             // LabQuarterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -333,5 +361,8 @@
         private System.Windows.Forms.Button ViewButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckedListBox CheckedListBox;
+        private System.Windows.Forms.Timer RotateTimer;
+        private System.Windows.Forms.Timer MoveTimer;
+        private System.Windows.Forms.Timer SizeTimer;
     }
 }

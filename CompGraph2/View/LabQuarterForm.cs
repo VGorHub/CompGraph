@@ -22,6 +22,10 @@ namespace CompGraph.View
         double l, m, n, // Сдвиг
         a, b, c, d, e, f, h, i, j; // Масштаб
 
+        double angle; // Угол поворота
+        double distance; // дистанция сдвига
+        double scale; //Кратность размера
+
 
         Bitmap myBitmap;
 
@@ -80,6 +84,7 @@ namespace CompGraph.View
             return r;
         }
 
+
         //вывод фигуры на экран
         private void Draw_Tetrahedron(ref double[,] shape)
         {
@@ -87,7 +92,7 @@ namespace CompGraph.View
 
             shape = Multiply_matr(shape, matr_preob); //перемножение матриц
 
-            Pen myPen = new Pen(Color.Blue, 2);// цвет линии и ширина
+            Pen myPen = new Pen(Color.Blue, 3);// цвет линии и ширина
 
             //создаем новый объект Graphics (поверхность рисования) из pictureBox
             Graphics g = Graphics.FromImage(myBitmap);
@@ -141,10 +146,80 @@ namespace CompGraph.View
 
         }
 
+
+        /////////////////////////////////////////////////////////////// Вращение
+
+
+        //Тик вращения
+        private void RotateTimer_Tick(object sender, EventArgs ea)
+        {
+            Graphics g = Graphics.FromImage(myBitmap);
+
+            g.Clear(SystemColors.Control);
+
+            Clear_matr_preob();
+
+            l = -300;
+            m = -200;
+
+
+            Draw_Tetrahedron(ref tetrahedron);
+
+            g.Clear(SystemColors.Control);
+
+            Clear_matr_preob();
+
+            switch (ComboBox1.SelectedIndex)
+            {
+                case 0:
+                    e = Math.Cos(angle * Math.PI / 180);
+                    f = Math.Sin(angle * Math.PI / 180);
+                    i = - Math.Sin(angle * Math.PI / 180);
+                    j = Math.Cos(angle * Math.PI / 180);
+                    break;
+                case 1:
+                    a = Math.Cos(angle * Math.PI / 180);
+                    c = - Math.Sin(angle * Math.PI / 180);
+                    h = Math.Sin(angle * Math.PI / 180);
+                    j = Math.Cos(angle * Math.PI / 180);
+                    break;
+                case 2:
+                    a = Math.Cos(angle * Math.PI / 180);
+                    b = Math.Sin(angle * Math.PI / 180);
+                    d = - Math.Sin(angle * Math.PI / 180);
+                    e = Math.Cos(angle * Math.PI / 180);
+                    break;
+                default:
+                    break;
+            }
+
+
+
+
+            Draw_Tetrahedron(ref tetrahedron);
+
+            g.Clear(SystemColors.Control);
+
+            Clear_matr_preob();
+
+            l = 300;
+            m = 200;
+
+            Draw_Osi();
+
+            Draw_Tetrahedron(ref tetrahedron);
+
+
+
+            Clear_matr_preob();
+
+            g.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
+            pictureBox1.Image = myBitmap;
+        }
+
         //Вращение 1
         private void Rotate_Click(object sender, EventArgs ev)
         {
-            double angle = double.Parse(RotateSpeedComboBox.SelectedItem.ToString());
 
             Graphics g = Graphics.FromImage(myBitmap);
 
@@ -167,19 +242,19 @@ namespace CompGraph.View
                 case 0:
                     e = Math.Cos(angle * Math.PI / 180);
                     f = Math.Sin(angle * Math.PI / 180);
-                    i = 0 - Math.Sin(angle * Math.PI / 180);
+                    i =  - Math.Sin(angle * Math.PI / 180);
                     j = Math.Cos(angle * Math.PI / 180);
                     break;
                 case 1:
                     a = Math.Cos(angle * Math.PI / 180);
-                    c = 0 - Math.Sin(angle * Math.PI / 180);
+                    c =  - Math.Sin(angle * Math.PI / 180);
                     h = Math.Sin(angle * Math.PI / 180);
                     j = Math.Cos(angle * Math.PI / 180);
                     break;
                 case 2:
                     a = Math.Cos(angle * Math.PI / 180);
                     b = Math.Sin(angle * Math.PI / 180);
-                    d = 0 - Math.Sin(angle * Math.PI / 180);
+                    d =  - Math.Sin(angle * Math.PI / 180);
                     e = Math.Cos(angle * Math.PI / 180);
                     break;
                 default:
@@ -211,10 +286,22 @@ namespace CompGraph.View
 
         }
 
+        //Вращение 1 старт
+        private void RotateButton1_MouseDown(object sender, MouseEventArgs e)
+        {
+            angle = double.Parse(RotateSpeedComboBox.SelectedItem.ToString());
+            RotateTimer.Start();
+        }
+
+        //Остановка вращения
+        private void RotateButton1_MouseUp(object sender, MouseEventArgs e)
+        {
+            RotateTimer.Stop();
+        }
+
         //Вращение 2
         private void RotateButton1_Click(object sender, EventArgs ev)
         {
-            double angle = 0 - double.Parse(RotateSpeedComboBox.SelectedItem.ToString());
 
             Graphics g = Graphics.FromImage(myBitmap);
 
@@ -238,19 +325,19 @@ namespace CompGraph.View
                 case 0:
                     e = Math.Cos(angle * Math.PI / 180);
                     f = Math.Sin(angle * Math.PI / 180);
-                    i = 0 - Math.Sin(angle * Math.PI / 180);
+                    i =  - Math.Sin(angle * Math.PI / 180);
                     j = Math.Cos(angle * Math.PI / 180);
                     break;
                 case 1:
                     a = Math.Cos(angle * Math.PI / 180);
-                    c = 0 - Math.Sin(angle * Math.PI / 180);
+                    c =  - Math.Sin(angle * Math.PI / 180);
                     h = Math.Sin(angle * Math.PI / 180);
                     j = Math.Cos(angle * Math.PI / 180);
                     break;
                 case 2:
                     a = Math.Cos(angle * Math.PI / 180);
                     b = Math.Sin(angle * Math.PI / 180);
-                    d = 0 - Math.Sin(angle * Math.PI / 180);
+                    d =  - Math.Sin(angle * Math.PI / 180);
                     e = Math.Cos(angle * Math.PI / 180);
                     break;
                 default:
@@ -272,6 +359,48 @@ namespace CompGraph.View
             Draw_Tetrahedron(ref tetrahedron);
 
 
+
+            Clear_matr_preob();
+
+            g.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
+            pictureBox1.Image = myBitmap;
+        }
+
+        //Вращение 2 старт
+        private void RotateButton2_MouseDown(object sender, MouseEventArgs e)
+        {
+            angle = 0 - double.Parse(RotateSpeedComboBox.SelectedItem.ToString());
+            RotateTimer.Start();
+        }
+
+        //Остановка вращения
+        private void RotateButton2_MouseUp(object sender, MouseEventArgs e)
+        {
+            RotateTimer.Stop();
+        }
+
+
+        /////////////////////////////////////////////////////////////// Сдвиг
+
+        //Тик сдвига
+        private void MoveTimer_Tick(object sender, EventArgs e)
+        {
+            Graphics g = Graphics.FromImage(myBitmap);
+
+            g.Clear(SystemColors.Control);
+
+            Clear_matr_preob();
+
+            if (CheckedListBox.CheckedItems.Contains("Ox"))
+                l = distance;
+            if (CheckedListBox.CheckedItems.Contains("Oy"))
+                m = distance;
+            if (CheckedListBox.CheckedItems.Contains("Oz"))
+                n = distance;
+
+            Draw_Osi();
+
+            Draw_Tetrahedron(ref tetrahedron);
 
             Clear_matr_preob();
 
@@ -282,8 +411,7 @@ namespace CompGraph.View
         //Сдвиг влево
         private void LeftButton_Click(object sender, EventArgs e)
         {
-            double distance = double.Parse(MoveComboBox.SelectedItem.ToString());
-
+            
             Graphics g = Graphics.FromImage(myBitmap);
 
             g.Clear(SystemColors.Control);
@@ -291,11 +419,11 @@ namespace CompGraph.View
             Clear_matr_preob();
 
             if (CheckedListBox.CheckedItems.Contains("Ox"))
-                l = -distance;
+                l = distance;
             if (CheckedListBox.CheckedItems.Contains("Oy"))
-                m = -distance;
+                m = distance;
             if (CheckedListBox.CheckedItems.Contains("Oz"))
-                n = -distance;
+                n = distance;
 
             Draw_Osi();
 
@@ -308,10 +436,22 @@ namespace CompGraph.View
 
         }
 
+        //Сдвиг влево старт
+        private void LeftButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            distance = -double.Parse(MoveComboBox.SelectedItem.ToString());
+            MoveTimer.Start();
+        }
+
+        //Сдвиг влево конец
+        private void LeftButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            MoveTimer.Stop();   
+        }
+
         //Сдвиг вправо
         private void RightButton_Click(object sender, EventArgs e)
         {
-            double distance = double.Parse(MoveComboBox.SelectedItem.ToString());
 
             Graphics g = Graphics.FromImage(myBitmap);
 
@@ -336,10 +476,24 @@ namespace CompGraph.View
             pictureBox1.Image = myBitmap;
         }
 
-        //Масштаб +
-        private void PlusButton_Click(object sender, EventArgs ev)
+        //Сдвиг вправо старт
+        private void RightButton_MouseDown(object sender, MouseEventArgs e)
         {
-            double scale = double.Parse(ScaleComboBox.SelectedItem.ToString());
+            distance = double.Parse(MoveComboBox.SelectedItem.ToString());
+            MoveTimer.Start();
+        }
+
+        //Сдвиг вправо конец
+        private void RightButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            MoveTimer.Stop();
+        }
+
+        /////////////////////////////////////////////////////////////// Масштаб
+
+        //Тик масштаба
+        private void SizeTimer_Tick(object sender, EventArgs ea)
+        {
 
             Graphics g = Graphics.FromImage(myBitmap);
 
@@ -384,10 +538,9 @@ namespace CompGraph.View
             pictureBox1.Image = myBitmap;
         }
 
-        //Масштаб -
-        private void MinusButton_Click(object sender, EventArgs ev)
+        //Масштаб +
+        private void PlusButton_Click(object sender, EventArgs ev)
         {
-            double scale = double.Parse(ScaleComboBox.SelectedItem.ToString());
 
             Graphics g = Graphics.FromImage(myBitmap);
 
@@ -405,11 +558,11 @@ namespace CompGraph.View
             Clear_matr_preob();
 
             if (CheckedListBox.CheckedItems.Contains("Ox"))
-                a = 1/scale;
+                a = scale;
             if (CheckedListBox.CheckedItems.Contains("Oy"))
-                e = 1/scale;
+                e = scale;
             if (CheckedListBox.CheckedItems.Contains("Oz"))
-                j = 1 / scale;
+                j = scale;
 
             Draw_Tetrahedron(ref tetrahedron);
 
@@ -431,6 +584,80 @@ namespace CompGraph.View
             g.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
             pictureBox1.Image = myBitmap;
         }
+
+        //Масштаб + старт
+        private void PlusButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            scale = double.Parse(ScaleComboBox.SelectedItem.ToString());
+            SizeTimer.Start();
+        }
+
+        //Масштаб + конец
+        private void PlusButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            SizeTimer.Stop();
+        }
+
+        //Масштаб -
+        private void MinusButton_Click(object sender, EventArgs ev)
+        {
+            Graphics g = Graphics.FromImage(myBitmap);
+
+            g.Clear(SystemColors.Control);
+
+            Clear_matr_preob();
+
+            l = -300;
+            m = -200;
+
+            Draw_Tetrahedron(ref tetrahedron);
+
+            g.Clear(SystemColors.Control);
+
+            Clear_matr_preob();
+
+            if (CheckedListBox.CheckedItems.Contains("Ox"))
+                a = scale;
+            if (CheckedListBox.CheckedItems.Contains("Oy"))
+                e = scale;
+            if (CheckedListBox.CheckedItems.Contains("Oz"))
+                j = scale;
+
+            Draw_Tetrahedron(ref tetrahedron);
+
+            g.Clear(SystemColors.Control);
+
+            Clear_matr_preob();
+
+            l = 300;
+            m = 200;
+
+            Draw_Osi();
+
+            Draw_Tetrahedron(ref tetrahedron);
+
+
+
+            Clear_matr_preob();
+
+            g.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
+            pictureBox1.Image = myBitmap;
+        }
+
+        //Масштаб - старт
+        private void MinusButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            scale = 1 / double.Parse(ScaleComboBox.SelectedItem.ToString());
+            SizeTimer.Start();
+        }
+
+        //Масштаб - конец
+        private void MinusButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            SizeTimer.Stop();
+        }
+
+        ///////////////////////////////////////////////////////////////
 
         private void ViewButton_MouseDown(object sender, MouseEventArgs e)
         {
