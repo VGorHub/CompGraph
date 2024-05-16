@@ -391,10 +391,6 @@ namespace CompGraph.View
         private void RotateButton2_MouseDown(object sender, MouseEventArgs e)
         {
 
-
-
-            angle = 0 - double.Parse("10");
-            RotateTimer.Start();
         }
 
         //Остановка вращения
@@ -493,38 +489,6 @@ namespace CompGraph.View
         private void ViewButton_MouseDown(object sender, MouseEventArgs e)
         {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            Graphics g = Graphics.FromImage(myBitmap);
-
-            Pen myPen = new Pen(Color.Blue, 2);// цвет линии и ширина
-
-            g.Clear(SystemColors.Control);
-
-            for (int i = 0; i < 4; i++)
-                for (int j = 0; j < 4; j++)
-                {
-                    g.DrawLine(myPen, (int)(tetrahedron[i, 0] + 100), (int)(tetrahedron[i, 1] - 100), (int)(tetrahedron[j, 0] + 100), (int)(tetrahedron[j, 1] - 100));
-                    g.DrawLine(myPen, (int)(tetrahedron[i, 1] + 0), (int)(tetrahedron[i, 2] + 250), (int)(tetrahedron[j, 1] + 0), (int)(tetrahedron[j, 2] + 250));
-                    g.DrawLine(myPen, (int)(tetrahedron[i, 0] + 100), (int)(tetrahedron[i, 2] + 250), (int)(tetrahedron[j, 0] + 100), (int)(tetrahedron[j, 2] + 250));
-                }
-
-            g.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
-            myPen.Dispose();
-            pictureBox1.Image = myBitmap;
         }
 
         private void ViewButton_MouseUp(object sender, MouseEventArgs e)
