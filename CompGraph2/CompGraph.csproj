@@ -77,6 +77,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\4.2.2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\4.2.2.Designer.cs">
+      <DependentUpon>4.2.2.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ChooseLaboratory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,12 +94,6 @@
     </Compile>
     <Compile Include="View\Grisha_3Laba_Tab.Designer.cs">
       <DependentUpon>Grisha_3Laba_Tab.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Grisha_Fourth_Work.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Grisha_Fourth_Work.Designer.cs">
-      <DependentUpon>Grisha_Fourth_Work.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Lab3Stepa.cs">
       <SubType>UserControl</SubType>
@@ -187,14 +187,14 @@
     <Compile Include="View\VGor3.Designer.cs">
       <DependentUpon>VGor3.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\4.2.2.resx">
+      <DependentUpon>4.2.2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ChooseLaboratory.resx">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Grisha_3Laba_Tab.resx">
       <DependentUpon>Grisha_3Laba_Tab.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Grisha_Fourth_Work.resx">
-      <DependentUpon>Grisha_Fourth_Work.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Lab3Stepa.resx">
       <DependentUpon>Lab3Stepa.cs</DependentUpon>
