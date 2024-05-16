@@ -73,6 +73,8 @@
             this.ViewButton.TabIndex = 14;
             this.ViewButton.Text = "View";
             this.ViewButton.UseVisualStyleBackColor = true;
+            this.ViewButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ViewButton_MouseDown);
+            this.ViewButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewButton_MouseUp);
             // 
             // RotateButton1
             // 
@@ -84,6 +86,9 @@
             this.RotateButton1.TabIndex = 13;
             this.RotateButton1.Text = "↻";
             this.RotateButton1.UseVisualStyleBackColor = true;
+            this.RotateButton1.Click += new System.EventHandler(this.RotateButton1_Click);
+            this.RotateButton1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RotateButton1_MouseDown);
+            this.RotateButton1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RotateButton1_MouseUp);
             // 
             // RotateButton2
             // 
@@ -95,6 +100,9 @@
             this.RotateButton2.TabIndex = 12;
             this.RotateButton2.Text = "↺";
             this.RotateButton2.UseVisualStyleBackColor = true;
+            this.RotateButton2.Click += new System.EventHandler(this.Rotate_Click);
+            this.RotateButton2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RotateButton2_MouseDown);
+            this.RotateButton2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RotateButton2_MouseUp);
             // 
             // _4LabVova
             // 

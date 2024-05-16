@@ -493,22 +493,6 @@ namespace CompGraph.View
 
         private void ViewButton_MouseUp(object sender, MouseEventArgs e)
         {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             Graphics g = Graphics.FromImage(myBitmap);
 
             g.Clear(SystemColors.Control);
