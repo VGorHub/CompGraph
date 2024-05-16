@@ -77,6 +77,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\4LabVova.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\4LabVova.Designer.cs">
+      <DependentUpon>4LabVova.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ChooseLaboratory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     <Compile Include="View\VGor3.Designer.cs">
       <DependentUpon>VGor3.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\4LabVova.resx">
+      <DependentUpon>4LabVova.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ChooseLaboratory.resx">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
     </EmbeddedResource>
