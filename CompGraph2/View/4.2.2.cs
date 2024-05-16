@@ -21,6 +21,8 @@ namespace CompGraph.View
 
 		double[,] rotateOs = new double[2, 4]; // ось вращения
 
+		double[] cameraNormal = new double[4];
+
 		bool[,] edgeIsVisible = new bool[4, 4];
 
 		double angle = 0; // Угол поворота
@@ -44,10 +46,10 @@ namespace CompGraph.View
 		//Инициализация формы фигуры
 		private void Init_Tetrahedron()
 		{
-			tetrahedron[0, 0] = 0; tetrahedron[0, 1] = -37.5; tetrahedron[0, 2] = 0; tetrahedron[0, 3] = 1;
-			tetrahedron[1, 0] = -37.5; tetrahedron[1, 1] = 37.5; tetrahedron[1, 2] = 25; tetrahedron[1, 3] = 1;
-			tetrahedron[2, 0] = 37.5; tetrahedron[2, 1] = 37.5; tetrahedron[2, 2] = 25; tetrahedron[2, 3] = 1;
-			tetrahedron[3, 0] = 0; tetrahedron[3, 1] = 37.5; tetrahedron[3, 2] = -50; tetrahedron[3, 3] = 1;
+			tetrahedron[0, 0] = 0; tetrahedron[0, 1] = 0; tetrahedron[0, 2] = -37.5;  tetrahedron[0, 3] = 1;
+			tetrahedron[1, 0] = -37.5; tetrahedron[1, 1] = 25; tetrahedron[1, 2] = 37.5; tetrahedron[1, 3] = 1;
+			tetrahedron[2, 0] = 37.5; tetrahedron[2, 1] = 25; tetrahedron[2, 2] = 37.5; tetrahedron[2, 3] = 1;
+			tetrahedron[3, 0] = 0; tetrahedron[3, 1] = -50; tetrahedron[3, 2] = 37.5; tetrahedron[3, 3] = 1;
 		}
 
 		//инициализация матрицы сдвига
@@ -71,20 +73,25 @@ namespace CompGraph.View
 		//инициализация матрицы сдвига
 		private void Init_rotate_os()
 		{
-			rotateOs[0, 0] = -100; rotateOs[0, 1] = -100; rotateOs[0, 2] = -100; rotateOs[0, 3] = 1;
-			rotateOs[1, 0] = 100; rotateOs[1, 1] = 100; rotateOs[1, 2] = 100; rotateOs[1, 3] = 1;
+			rotateOs[0, 0] = -50; rotateOs[0, 1] = -50; rotateOs[0, 2] = -50; rotateOs[0, 3] = 1;
+			rotateOs[1, 0] = 50; rotateOs[1, 1] = 50; rotateOs[1, 2] = 50; rotateOs[1, 3] = 1;
 
 		}
 
 		//инициализация рёбер
 		private void Init_Edges()
 		{
-			edgeIsVisible[0, 0] = 0; osi[0, 1] = 0; osi[0, 2] = 0; osi[0, 3] = 1;
-			edgeIsVisible[1, 0] = 100; osi[1, 1] = 0; osi[1, 2] = 0; osi[1, 3] = 1;
-			edgeIsVisible[2, 0] = 0; osi[2, 1] = 100; osi[2, 2] = 0; osi[2, 3] = 1;
-			edgeIsVisible[3, 0] = 0; osi[3, 1] = 0; osi[3, 2] = 100; osi[3, 3] = 1;
+			edgeIsVisible[0, 0] = false; edgeIsVisible[0, 1] = false; edgeIsVisible[0, 2] = false; edgeIsVisible[0, 3] = false;
+			edgeIsVisible[1, 0] = false; edgeIsVisible[1, 1] = false; edgeIsVisible[1, 2] = false; edgeIsVisible[1, 3] = false;
+			edgeIsVisible[2, 0] = false; edgeIsVisible[2, 1] = false; edgeIsVisible[2, 2] = false; edgeIsVisible[2, 3] = false;
+			edgeIsVisible[3, 0] = false; edgeIsVisible[3, 1] = false; edgeIsVisible[3, 2] = false; edgeIsVisible[3, 3] = false;
 		}
 
+		//инициализация нормали камеры
+		private void Init_Cam_Normal()
+		{
+			cameraNormal[0] = -37.797; cameraNormal[1] = 32.732260035; cameraNormal[2] = 86.6003666898;
+		}
 
 		//Обнуление матрицы преобразования
 		private void Clear_matr_preob()
@@ -116,6 +123,40 @@ namespace CompGraph.View
 			return r;
 		}
 
+		//векторное умножение векторов
+		public double[] CrossMultiply(double[] v1, double[] v2)
+		{
+
+			double[] result = new double[3];
+
+			result[0] = v1[1] * v2[2] - v1[2] * v2[1];
+			result[1] = v1[2] * v2[0] - v1[0] * v2[2];
+			result[2] = v1[0] * v2[1] - v1[1] * v2[0];
+
+			return result;
+		}
+
+		//скалярное произведение векторов
+		public double Multiply_Vector(double[] v1, double[] v2)
+		{
+			double result = 0;
+			for (int i = 0; i < 3; ++i)
+				result += v1[i] * v2[i];
+			return result;
+		}
+
+		//проверка угла между векторами
+		bool faceIsVisible(double[] v1, double[] v2)
+		{
+			double mod_v1 = Math.Sqrt((v1[0] * v1[0]) + (v1[1] * v1[1]) + (v1[2] * v1[2]));
+			double mod_v2 = Math.Sqrt((v2[0] * v2[0]) + (v2[1] * v2[1]) + (v2[2] * v2[2])); 
+
+			double cos = Multiply_Vector(v1, v2) / (mod_v1 * mod_v2);
+
+			return (cos > 0);
+			
+		}
+
 		///////////////////////////////////////////////////////// Отрисовка фигуры
 
 		//отрисовка фигуры без вида
@@ -140,7 +181,7 @@ namespace CompGraph.View
 		}
 
 		//вывод фигуры на экран
-		private void Draw_ViewTetrahedron(ref double[,] shape)
+		private void Draw_ViewVisibleTetrahedron(ref double[,] shape)
 		{
 			///////////////////////////// перемещение в 0,0
 
@@ -193,7 +234,74 @@ namespace CompGraph.View
 			for (int i = 0; i < 4; i++)
 				for (int j = 0; j < 4; j++)
 				{
-					Line(viewShape[i, 0], viewShape[i, 1], viewShape[j, 0], viewShape[j, 1], Color.DarkBlue, 3);
+					if (edgeIsVisible[i,j])
+					{
+						Line(viewShape[i, 0], viewShape[i, 1], viewShape[j, 0], viewShape[j, 1], Color.DarkBlue, 3);
+					}
+
+				}
+
+			g.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
+			pictureBox1.Image = myBitmap;
+
+		}
+
+		//вывод фигуры на экран
+		private void Draw_ViewInvisibleTetrahedron(ref double[,] shape)
+		{
+			///////////////////////////// перемещение в 0,0
+
+			Clear_matr_preob();
+
+			l = -250;
+			m = -200;
+
+			Init_matr_preob(); //инициализация матрицы преобразования
+
+			var viewShape = Multiply_matr(shape, matr_preob); //перемножение матриц
+
+			Clear_matr_preob();
+
+			/////////////////////////////
+
+			double alfa = 22.208;
+			double beta = 20.705;
+
+			a = Math.Cos(alfa * Math.PI / 180);
+			b = Math.Sin(alfa * Math.PI / 180) * Math.Sin(beta * Math.PI / 180);
+			e = Math.Cos(beta * Math.PI / 180);
+			h = Math.Sin(alfa * Math.PI / 180);
+			i = -Math.Cos(alfa * Math.PI / 180) * Math.Sin(beta * Math.PI / 180);
+			j = 0;
+
+			Init_matr_preob();
+
+			viewShape = Multiply_matr(viewShape, matr_preob); //перемножение матриц
+
+			Clear_matr_preob();
+
+			///////////////////////////// возвращение обратно
+
+			l = 250;
+			m = 200;
+
+			Init_matr_preob(); //инициализация матрицы преобразования
+
+			viewShape = Multiply_matr(viewShape, matr_preob); //перемножение матриц
+
+			Clear_matr_preob();
+
+			/////////////////////////////
+
+
+			//создаем новый объект Graphics (поверхность рисования) из pictureBox
+			Graphics g = Graphics.FromImage(myBitmap);
+
+			for (int i = 0; i < 4; i++)
+				for (int j = 0; j < 4; j++)
+				{
+					if (!edgeIsVisible[i, j])
+					Line(viewShape[i, 0], viewShape[i, 1], viewShape[j, 0], viewShape[j, 1], Color.DarkBlue, 1, true);
 				}
 
 			g.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
@@ -283,13 +391,13 @@ namespace CompGraph.View
 			//создаем новый объект Graphics (поверхность рисования) из pictureBox
 			Graphics g = Graphics.FromImage(myBitmap);
 
-			Line(viewOsi[0, 0], viewOsi[0, 1], viewRotateOs[0, 0], viewRotateOs[0, 1], Color.Gray, 1);
+			Line(viewOsi[0, 0], viewOsi[0, 1], viewRotateOs[0, 0], viewRotateOs[0, 1], Color.DarkGray, 3);
 
-			Line(viewOsi[0, 0], viewOsi[0, 1], viewOsi[1, 0], viewOsi[1, 1], Color.Green, 1);
-			Line(viewOsi[0, 0], viewOsi[0, 1], viewOsi[2, 0], viewOsi[2, 1], Color.Blue, 1);
-			Line(viewOsi[0, 0], viewOsi[0, 1], viewOsi[3, 0], viewOsi[3, 1], Color.Red, 1);
+			Line(viewOsi[0, 0], viewOsi[0, 1], viewOsi[1, 0], viewOsi[1, 1], Color.Green, 2);
+			Line(viewOsi[0, 0], viewOsi[0, 1], viewOsi[2, 0], viewOsi[2, 1], Color.Blue, 2);
+			Line(viewOsi[0, 0], viewOsi[0, 1], viewOsi[3, 0], viewOsi[3, 1], Color.Red, 2);
 
-			Line(viewOsi[0, 0], viewOsi[0, 1], viewRotateOs[1, 0], viewRotateOs[1, 1], Color.Gray, 1);
+			Line(viewOsi[0, 0], viewOsi[0, 1], viewRotateOs[1, 0], viewRotateOs[1, 1], Color.DarkGray, 3);
 
 
 			g.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
@@ -301,11 +409,15 @@ namespace CompGraph.View
 		//Генерация кадра
 		private void Generate()
 		{
+			Init_Edges();
+
 			Init_Tetrahedron();
 
 			Init_Osi();
 
 			Init_rotate_os();
+
+			Init_Cam_Normal();
 
 			Clear_matr_preob();
 
@@ -378,11 +490,18 @@ namespace CompGraph.View
 
 			Graphics g = Graphics.FromImage(myBitmap);
 
-			g.Clear(SystemColors.Control);			
+			g.Clear(SystemColors.Control);
+
+			//поиск граней
+			Init_Edges();
+
+			visibleEdges();
+
+			Draw_ViewInvisibleTetrahedron(ref tetrahedron);
 
 			Draw_ViewOsi();
 
-			Draw_ViewTetrahedron(ref tetrahedron);
+			Draw_ViewVisibleTetrahedron(ref tetrahedron);
 		}
 
 		///////////////////////////////////////////////////////// Buttons
@@ -538,7 +657,7 @@ namespace CompGraph.View
 
 			if (isDotted == true)
 			{
-				if (counter % 20 < 10)
+				if (counter % 30 < 10)
 				{
 					g.DrawRectangle(myPen, x, y, width, width);
 				}
@@ -551,12 +670,71 @@ namespace CompGraph.View
 			pictureBox1.Image = myBitmap;
 		}
 
-
-		private bool IsVisible(int i, int j)
+		//вычисляет, какие рёбра видимые
+		private void visibleEdges()
 		{
+			double[][] normals = new double[4][];
 
+			normals[0] = getNormal(0, 1, 2);
+			normals[1] = getNormal(0, 2, 3);
+			normals[2] = getNormal(0, 3, 1);
+			normals[3] = getNormal(3, 2, 1);
 
+			//Проверка каждой грани
+			int[] numbers1 = { 0, 1, 2 };
+			if (faceIsVisible(normals[0], cameraNormal))
+			{
+				foreach (var i in numbers1)
+					foreach (var j in numbers1)
+					{
+						edgeIsVisible[i, j] = true;
+					}
+			}
 
+			int[] numbers2 = { 0, 2, 3 };
+			if (faceIsVisible(normals[1], cameraNormal))
+			{
+				foreach (var i in numbers2)
+					foreach (var j in numbers2)
+					{
+						edgeIsVisible[i, j] = true;
+					}
+			}
+
+			int[] numbers3 = { 0, 3, 1 };
+			if (faceIsVisible(normals[2], cameraNormal))
+			{
+				foreach (var i in numbers3)
+					foreach (var j in numbers3)
+					{
+						edgeIsVisible[i, j] = true;
+					}
+			}
+
+			int[] numbers4 = { 3, 2, 1 };
+			if (faceIsVisible(normals[3], cameraNormal))
+			{
+				foreach (var i in numbers4)
+					foreach (var j in numbers4)
+					{
+						edgeIsVisible[i, j] = true;
+					}
+			}
+
+		}
+
+		private double[] getNormal(int root_h, int root_a, int root_b)
+		{
+			double[] v_a = new double[3];
+			double[] v_b = new double[3]; 
+
+			for (int i = 0; i < 3; i++) 
+			{
+				v_a[i] = tetrahedron[root_h,i] - tetrahedron[root_a,i];
+				v_b[i] = tetrahedron[root_h,i] - tetrahedron[root_b,i];
+			}
+
+			return CrossMultiply(v_a, v_b);
 		}
 
 	}

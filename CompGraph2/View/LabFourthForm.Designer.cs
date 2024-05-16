@@ -49,7 +49,7 @@
 			this.tabControl_LabFourth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.tabControl_LabFourth.Name = "tabControl_LabFourth";
 			this.tabControl_LabFourth.SelectedIndex = 0;
-			this.tabControl_LabFourth.Size = new System.Drawing.Size(1244, 793);
+			this.tabControl_LabFourth.Size = new System.Drawing.Size(818, 503);
 			this.tabControl_LabFourth.TabIndex = 0;
 			// 
 			// tabPage1
@@ -90,7 +90,7 @@
 			this.tabPage4.Location = new System.Drawing.Point(4, 25);
 			this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.tabPage4.Name = "tabPage4";
-			this.tabPage4.Size = new System.Drawing.Size(1236, 764);
+			this.tabPage4.Size = new System.Drawing.Size(810, 474);
 			this.tabPage4.TabIndex = 3;
 			this.tabPage4.Text = "Anton";
 			this.tabPage4.UseVisualStyleBackColor = true;
@@ -100,14 +100,14 @@
 			this._41.Dock = System.Windows.Forms.DockStyle.Fill;
 			this._41.Location = new System.Drawing.Point(0, 0);
 			this._41.Name = "_41";
-			this._41.Size = new System.Drawing.Size(1236, 764);
+			this._41.Size = new System.Drawing.Size(810, 474);
 			this._41.TabIndex = 0;
 			// 
 			// LabFourthForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1244, 793);
+			this.ClientSize = new System.Drawing.Size(818, 503);
 			this.Controls.Add(this.tabControl_LabFourth);
 			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.Name = "LabFourthForm";
