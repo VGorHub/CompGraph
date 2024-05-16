@@ -31,7 +31,7 @@ namespace CompGraph.View
 
         public _4LabVova()
         {
-            {
+            
             InitializeComponent();
             myBitmap = new Bitmap(pictureBox1.Width + 200, pictureBox1.Height);
             Generate();
