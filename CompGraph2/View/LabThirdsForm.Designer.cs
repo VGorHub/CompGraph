@@ -46,7 +46,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(0, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(828, 656);
@@ -107,14 +107,14 @@
             this.labThird_10.Location = new System.Drawing.Point(3, 3);
             this.labThird_10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labThird_10.Name = "labThird_10";
-            this.labThird_10.Size = new System.Drawing.Size(822, 624);
+            this.labThird_10.Size = new System.Drawing.Size(814, 624);
             this.labThird_10.TabIndex = 0;
             // 
             // LabThirdForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 659);
+            this.ClientSize = new System.Drawing.Size(865, 686);
             this.Controls.Add(this.tabControl1);
             this.Name = "LabThirdForm";
             this.Text = "LabThirdForm";
