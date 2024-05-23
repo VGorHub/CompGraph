@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
     <Compile Include="Model\Edge.cs" />
     <Compile Include="Model\Figure.cs" />
     <Compile Include="Model\Model3.cs" />
@@ -76,6 +77,12 @@
     </Compile>
     <Compile Include="View\4LabVova.Designer.cs">
       <DependentUpon>4LabVova.cs</DependentUpon>
+    <Compile Include="View\4.2.2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\4.2.2.Designer.cs">
+      <DependentUpon>4.2.2.cs</DependentUpon>
+
     </Compile>
     <Compile Include="View\ChooseLaboratory.cs">
       <SubType>Form</SubType>
@@ -169,6 +176,12 @@
     <Compile Include="View\ScalarProductOfVector.Designer.cs">
       <DependentUpon>ScalarProductOfVector.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\stepa4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\stepa4.Designer.cs">
+      <DependentUpon>stepa4.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\VectorModule.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -187,8 +200,13 @@
     <Compile Include="View\VGor3.Designer.cs">
       <DependentUpon>VGor3.cs</DependentUpon>
     </Compile>
+
     <EmbeddedResource Include="View\4LabVova.resx">
       <DependentUpon>4LabVova.cs</DependentUpon>
+
+    <EmbeddedResource Include="View\4.2.2.resx">
+      <DependentUpon>4.2.2.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="View\ChooseLaboratory.resx">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
@@ -244,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ScalarProductOfVector.resx">
       <DependentUpon>ScalarProductOfVector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\stepa4.resx">
+      <DependentUpon>stepa4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\VectorModule.resx">
       <DependentUpon>VectorModule.cs</DependentUpon>
