@@ -77,6 +77,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Edge.cs" />
+    <Compile Include="Model\Figure.cs" />
+    <Compile Include="Model\Model3.cs" />
+    <Compile Include="Model\Point3.cs" />
+    <Compile Include="Model\TransformMatrix3.cs" />
+    <Compile Include="Model\Vector3.cs" />
     <Compile Include="View\4.2.2.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -112,6 +118,12 @@
     </Compile>
     <Compile Include="View\Lab3Stepa.Designer.cs">
       <DependentUpon>Lab3Stepa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Lab4_Vova.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Lab4_Vova.Designer.cs">
+      <DependentUpon>Lab4_Vova.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LabFirstForm.cs">
       <SubType>Form</SubType>
@@ -222,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Lab3Stepa.resx">
       <DependentUpon>Lab3Stepa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Lab4_Vova.resx">
+      <DependentUpon>Lab4_Vova.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LabFirstForm.resx">
       <DependentUpon>LabFirstForm.cs</DependentUpon>
