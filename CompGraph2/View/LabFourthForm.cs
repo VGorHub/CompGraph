@@ -24,5 +24,12 @@ namespace CompGraph.View
             Grisha_OpenGl = new Grisha_OpenGl();
             tabPage2.Controls.Add(Grisha_OpenGl);
         }
+
+        private void LabFourthForm_Load(object sender, EventArgs e)
+        {
+            Lab4_Vova lab4 = new Lab4_Vova();
+            lab4.Dock = DockStyle.Fill;
+            tabControl_LabFourth.TabPages[2].Controls.Add(lab4);
+        }
     }
 }
