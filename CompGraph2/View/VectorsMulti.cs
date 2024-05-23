@@ -16,6 +16,7 @@ namespace CompGraph.View
         const int MaxN = 4; // максимально допустимая размерность
         int n = 3; // текущая размерность
 
+
         TextBox[] VectorText = null; // Вектор элементов типа TextBox
         double[] Vector = new double[MaxN]; // Вектор чисел с плавающей точкой
         TextBox[] VectorText2 = null; // Вектор элементов типа TextBox
