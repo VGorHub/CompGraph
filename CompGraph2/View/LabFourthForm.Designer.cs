@@ -94,6 +94,7 @@
             this.Controls.Add(this.tabControl_LabFourth);
             this.Name = "LabFourthForm";
             this.Text = "LabFourthForm";
+            this.Load += new System.EventHandler(this.LabFourthForm_Load);
             this.tabControl_LabFourth.ResumeLayout(false);
             this.ResumeLayout(false);
 
