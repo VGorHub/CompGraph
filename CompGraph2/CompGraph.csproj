@@ -51,6 +51,26 @@
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -94,6 +114,12 @@
     </Compile>
     <Compile Include="View\Grisha_3Laba_Tab.Designer.cs">
       <DependentUpon>Grisha_3Laba_Tab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Grisha_OpenGl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Grisha_OpenGl.Designer.cs">
+      <DependentUpon>Grisha_OpenGl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Lab3Stepa.cs">
       <SubType>UserControl</SubType>
@@ -175,6 +201,12 @@
     <Compile Include="View\stepa4.Designer.cs">
       <DependentUpon>stepa4.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\testetst1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\testetst1.Designer.cs">
+      <DependentUpon>testetst1.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\VectorModule.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +225,12 @@
     <Compile Include="View\VGor3.Designer.cs">
       <DependentUpon>VGor3.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\weferfverfrgeregerwghewrg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\weferfverfrgeregerwghewrg.Designer.cs">
+      <DependentUpon>weferfverfrgeregerwghewrg.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\4.2.2.resx">
       <DependentUpon>4.2.2.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Grisha_3Laba_Tab.resx">
       <DependentUpon>Grisha_3Laba_Tab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Grisha_OpenGl.resx">
+      <DependentUpon>Grisha_OpenGl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Lab3Stepa.resx">
       <DependentUpon>Lab3Stepa.cs</DependentUpon>
@@ -251,6 +292,9 @@
     <EmbeddedResource Include="View\stepa4.resx">
       <DependentUpon>stepa4.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\testetst1.resx">
+      <DependentUpon>testetst1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\VectorModule.resx">
       <DependentUpon>VectorModule.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\VGor3.resx">
       <DependentUpon>VGor3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\weferfverfrgeregerwghewrg.resx">
+      <DependentUpon>weferfverfrgeregerwghewrg.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -275,6 +322,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="Libraries\" />
     <Folder Include="Servises\" />
   </ItemGroup>
   <ItemGroup>
@@ -290,7 +338,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="freeglut.dll" />
     <Content Include="tusur_logo.jpg" />
+    <Content Include="View\freeglut.dll" />
     <Content Include="View\tusur_logo.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
