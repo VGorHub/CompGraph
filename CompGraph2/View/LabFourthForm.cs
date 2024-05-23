@@ -12,9 +12,12 @@ namespace CompGraph.View
 {
     public partial class LabFourthForm : Form
     {
+        grisha41 grisha41;
         public LabFourthForm()
         {
             InitializeComponent();
+            grisha41 = new grisha41();
+            tabPage2.Controls.Add(grisha41);
         }
     }
 }

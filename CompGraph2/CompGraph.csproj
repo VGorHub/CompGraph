@@ -89,6 +89,18 @@
     <Compile Include="View\ChooseLaboratory.Designer.cs">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\grisha41.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\grisha41.Designer.cs">
+      <DependentUpon>grisha41.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\grisha44444.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\grisha44444.Designer.cs">
+      <DependentUpon>grisha44444.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Grisha_3Laba_Tab.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -198,6 +210,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ChooseLaboratory.resx">
       <DependentUpon>ChooseLaboratory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\grisha41.resx">
+      <DependentUpon>grisha41.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\grisha44444.resx">
+      <DependentUpon>grisha44444.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Grisha_3Laba_Tab.resx">
       <DependentUpon>Grisha_3Laba_Tab.cs</DependentUpon>
