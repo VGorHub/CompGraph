@@ -169,6 +169,12 @@
     <Compile Include="View\ScalarProductOfVector.Designer.cs">
       <DependentUpon>ScalarProductOfVector.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\stepa4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\stepa4.Designer.cs">
+      <DependentUpon>stepa4.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\VectorModule.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ScalarProductOfVector.resx">
       <DependentUpon>ScalarProductOfVector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\stepa4.resx">
+      <DependentUpon>stepa4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\VectorModule.resx">
       <DependentUpon>VectorModule.cs</DependentUpon>
