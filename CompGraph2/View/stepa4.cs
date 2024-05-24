@@ -103,7 +103,7 @@ namespace CompGraph.View
             // создаем новый объект Graphics (поверхность рисования) из pictureBox
             Graphics g = Graphics.FromImage(myBitmap);
 
-            int gridSize = 7; // size of the grid (7x7)
+            int gridSize = 7; 
 
             for (int i = 0; i < gridSize; i++)
             {
@@ -111,14 +111,14 @@ namespace CompGraph.View
                 {
                     int index = i * gridSize + j;
 
-                    // Draw horizontal lines
+                    
                     if (j < gridSize - 1)
                     {
                         int nextIndex = index + 1;
                         g.DrawLine(myPen, (int)shape[index, 0], (int)shape[index, 1], (int)shape[nextIndex, 0], (int)shape[nextIndex, 1]);
                     }
 
-                    // Draw vertical lines
+                    
                     if (i < gridSize - 1)
                     {
                         int nextIndex = index + gridSize;

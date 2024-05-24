@@ -434,7 +434,7 @@ namespace CompGraph.View
 
 		}
 
-		private void Timer_Tick(object sender, EventArgs ea)
+        private void Timer_Tick(object sender, EventArgs ea)
 		{
 			Clear_matr_preob();
 
@@ -529,6 +529,19 @@ namespace CompGraph.View
 			Timer.Stop();
 		}
 
+        private void RotateButton1_Click(object sender, EventArgs e)
+        {
+            angle = 5;
+			Timer_Tick(sender, e);
+			angle = 0;
+        }
+
+        private void RotateButton2_Click(object sender, EventArgs e)
+        {
+            angle = -5;
+            Timer_Tick(sender, e);
+            angle = 0;
+        }
 
 
 
@@ -555,12 +568,13 @@ namespace CompGraph.View
 
 
 
-		/////////////////////////////////////////////////////////////////
 
-		/// <summary>
-		/// Отрисовка линии
-		/// </summary>
-		private void Line(double x1, double y1, double x2, double y2)
+        /////////////////////////////////////////////////////////////////
+
+        /// <summary>
+        /// Отрисовка линии
+        /// </summary>
+        private void Line(double x1, double y1, double x2, double y2)
 		{
 			Pen myPen = new Pen(Color.Blue, 3);// цвет линии и ширина
 
